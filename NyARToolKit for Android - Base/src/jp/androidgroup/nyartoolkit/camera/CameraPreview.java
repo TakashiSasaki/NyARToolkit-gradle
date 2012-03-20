@@ -35,13 +35,29 @@
 package jp.androidgroup.nyartoolkit.camera;
 
 import java.io.IOException;
+import java.util.List;
 
 import android.content.Context;
 import android.hardware.Camera;
+import android.hardware.Camera.Size;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+/**
+ * カメラキャプチャを制御するクラス
+ * 
+ * 4:3 固定で、320x240 ～ 640x480 の範囲内で許容される最小サイズでキャプチャするような
+ * アルゴリズムが実装されている。これは、大きい画面ほど処理の負荷が高くカクカクになってしまうため。
+ * デュアルコアが搭載されている端末であれば、800x600より一回り小さいサイズまで耐えられそう。
+ * 
+ * 画面比の問題があるため、基本的には 4:3 固定で使用すること。
+ * カメラパラメータファイルを準備して 16:9 にすることも可能ではあるが、その場合は、 desireWitdh、Height を、
+ * 指定の比率に書き換えて使用してください。
+ * 必要に応じて、setter を作って、new したタイミングで、画面サイズに合わせて書き換える処理を入れてもいいと思います。
+ * 
+ * 書き換える際は、ソースコードをよく読んで、用法を間違えずにご利用ください。
+ */
 public class CameraPreview extends SurfaceView
 	implements SurfaceHolder.Callback, Camera.PreviewCallback
 {
@@ -54,6 +70,26 @@ public class CameraPreview extends SurfaceView
 	 * ハードウェアの Camera
 	 */
 	private Camera camera;
+	
+	/**
+	 * 設定可能なキャプチャ映像の最小幅
+	 */
+	private int minDesiredWidth = 320;
+	
+	/**
+	 * 設定可能なキャプチャ映像の最小高さ
+	 */
+	private int minDesiredHeight = 240;
+	
+	/**
+	 * (上限)キャプチャ映像の幅
+	 */
+	private int maxDesiredWidth = 640;
+	
+	/**
+	 * (上限)キャプチャ映像の高さ
+	 */
+	private int maxDesiredHeight = 480;
 	
 	/**
 	 * 設定したいキャプチャ映像の幅
@@ -141,11 +177,45 @@ public class CameraPreview extends SurfaceView
 			return;
 		}
 		
+		// 許容される比率の最低値
+		final double ASPECT_TOLERANCE = 0.05;
+		double targetRatio = (double) minDesiredWidth / minDesiredHeight;
+		
 		// カメラの設定を取得する
 		Camera.Parameters parameters = camera.getParameters();
 		
-		// 取得した設定を書き換える
-		parameters.setPreviewSize(desiredWidth, desiredHeight);
+		// 適応サイズ有無確認フラグ
+		boolean _isFoundCapSize = false;
+		
+		// キャプチャサイズ初期化
+		captureWidth  = maxDesiredWidth;
+		captureHeight = maxDesiredHeight;
+		
+		// カメラのキャプチャサイズのリストを取得
+		List<Size> sizes = parameters.getSupportedPreviewSizes();
+		
+		// 適切なサイズはどれかな？
+		for (Size size : sizes) {
+			double ratio = (double) size.width / size.height;
+			if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) {
+				continue;
+			}
+			if (size.height <= maxDesiredHeight) {
+				if (captureHeight!=size.height && captureHeight <= size.height) {
+					continue;
+				}
+				parameters.setPreviewSize(size.width, size.height);
+				captureWidth = size.width;
+				captureHeight = size.height;
+				_isFoundCapSize = true;
+			}
+		}
+		
+		if (!_isFoundCapSize) {
+			parameters.setPreviewSize(desiredWidth, desiredHeight);
+		}
+		
+		// フレームレート
 		parameters.setPreviewFrameRate(desiredFrameRate);
 		
 		// 再設定
