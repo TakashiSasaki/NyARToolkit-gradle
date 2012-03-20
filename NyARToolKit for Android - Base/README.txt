@@ -1,7 +1,7 @@
 ======================================================================
 NyARToolKit for Android SDK
- version 4.0.0-1 (Android 2.2)
-  include NyARToolKit for Java 4.0.0
+ version 4.0.1-1 (Android 2.2)
+  include NyARToolKit for Java 4.0.1
 
 ======================================================================
 
@@ -40,14 +40,14 @@ contributors
 ----------------------------------------------------------------------
  * NyARToolKit の Android SDK 版です
  * Android SDK 2.2 platform(API level 8) 以上
- * A虎＠(nyatla)氏の NyARToolkit for Java v4.0.0 を基盤に作られています
+ * A虎＠(nyatla)氏の NyARToolkit for Java v4.x を基盤に作られています
  * このライブラリは入力画像からマーカーを認識して、3次元空間でのマーカー位置を計算する部分まで行います
  * ハードウェアに依存するカメラ部分は機種に合わせて調整する必要があります
  * 3D グラフィックスとの合成などは各自で実装する事が可能です
 
  # Android SDK ported version of NyARToolKit.
  # Android SDK 2.2 platform or higher
- # This library is made based on NyARToolkit for Java v4.0.0 of nyatla.
+ # This library is made based on NyARToolkit for Java v4.x of nyatla.
  # This library is done to the part where the marker position
    in 3D space is calculated recognizing the marker from the input image.
  # You should make the camera part that depends on hardware according to the model.
@@ -107,11 +107,20 @@ some relating libraries. Each license adjusts to the included library.
 ----------------------------------------------------------------------
  Development environment
 ----------------------------------------------------------------------
- * Android 2.2 Platform + Eclipse Indigo + JDK 6
+ * JDK 6
+ * Android SDK Tools,r16
+ * Eclipse Indigo
+ * ADT 16.0.1
  
 ----------------------------------------------------------------------
  Special thanks
 ----------------------------------------------------------------------
+ARToolworks Inc.
+ http://www.artoolworks.com/
+
+R.Iizuka (nyatla)
+ http://nyatla.jp/nyatoolkit/
+
 加藤博一先生 (Hirokazu Kato, Ph. D.)
  http://www.hitl.washington.edu/artoolkit/
 
@@ -121,5 +130,7 @@ Prof. Mark Billinghurst
 ----------------------------------------------------------------------
  Change Log
 ----------------------------------------------------------------------
+4.0.1-1 (2012-Mar-20)
+ * NyARToolKit v4.0.0 から v4.0.1 に変更
 4.0.0-1 (2012-Mar-10)
  * The first release
