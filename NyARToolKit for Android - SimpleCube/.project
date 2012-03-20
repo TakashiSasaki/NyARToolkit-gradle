@@ -34,7 +34,7 @@
 		<link>
 			<name>NyARToolKit for Android - Base</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PARENT_LOC/NyARToolKit%20for%20Android%20-%20Base/src</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/NyARToolKit%20for%20Android%20-%20Base/src</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
