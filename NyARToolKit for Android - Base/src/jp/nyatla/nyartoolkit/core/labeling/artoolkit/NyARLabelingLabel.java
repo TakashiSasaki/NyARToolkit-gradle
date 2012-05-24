@@ -30,7 +30,7 @@
  */
 package jp.nyatla.nyartoolkit.core.labeling.artoolkit;
 
-import jp.nyatla.nyartoolkit.core.labeling.*;
+import jp.nyatla.nyartoolkit.core.labeling.NyARLabelInfo;
 
 /**
  * このクラスは、{@link NyARLabelingImage}クラスの使うデータ型です。

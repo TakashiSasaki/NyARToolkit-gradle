@@ -24,7 +24,7 @@
  */
 package jp.nyatla.nyartoolkit.nyidmarker.data;
 
-import jp.nyatla.nyartoolkit.nyidmarker.*;
+import jp.nyatla.nyartoolkit.nyidmarker.NyIdMarkerPattern;
 /**
  * このクラスは、マーカパターンを{@link NyIdMarkerData_RawBit}型のデータに変換します。
  */

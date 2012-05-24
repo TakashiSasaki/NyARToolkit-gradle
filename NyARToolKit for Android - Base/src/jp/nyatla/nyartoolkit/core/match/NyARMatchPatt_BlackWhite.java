@@ -30,7 +30,8 @@
  */
 package jp.nyatla.nyartoolkit.core.match;
 
-import jp.nyatla.nyartoolkit.core.*;
+import jp.nyatla.nyartoolkit.core.NyARCode;
+import jp.nyatla.nyartoolkit.core.NyARException;
 
 /**
  * このクラスは、グレースケールで２パターンの一致度を計算します。

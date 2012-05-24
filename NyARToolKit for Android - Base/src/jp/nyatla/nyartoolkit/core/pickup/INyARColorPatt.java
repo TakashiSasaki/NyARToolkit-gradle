@@ -31,8 +31,8 @@
 package jp.nyatla.nyartoolkit.core.pickup;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.raster.rgb.*;
-import jp.nyatla.nyartoolkit.core.types.*;
+import jp.nyatla.nyartoolkit.core.raster.rgb.INyARRgbRaster;
+import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
 
 /**
  * このインタフェイスは、{@link INyARRgbRaster}に、RGBラスタから任意の４頂点で定義した領域を、自由変形して格納する関数を追加します。

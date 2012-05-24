@@ -42,7 +42,6 @@ import javax.microedition.khronos.opengles.GL10;
 
 import jp.androidgroup.nyartoolkit.renderer.DefaultRenderer;
 import jp.androidgroup.nyartoolkit.wrapper.NyARToolKitWrapper;
-
 import android.util.Log;
 
 /**

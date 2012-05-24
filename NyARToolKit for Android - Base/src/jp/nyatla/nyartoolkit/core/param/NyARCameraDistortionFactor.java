@@ -30,7 +30,9 @@
  */
 package jp.nyatla.nyartoolkit.core.param;
 
-import jp.nyatla.nyartoolkit.core.types.*;
+import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint2d;
+import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
+import jp.nyatla.nyartoolkit.core.types.NyARVecLinear2d;
 
 /**
  * このクラスは、樽型歪み設定/解除クラスです。

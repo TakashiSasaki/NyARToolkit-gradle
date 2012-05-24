@@ -35,7 +35,6 @@ package jp.androidgroup.nyartoolkit.markersystem.simple;
 
 import jp.androidgroup.nyartoolkit.markersystem.AbstractMarkerSystemActivity;
 import jp.androidgroup.nyartoolkit.markersystem.renderer.MarkerSystemAbstractRenderer;
-import jp.androidgroup.nyartoolkit.markersystem.simple.R;
 import jp.nyatla.nyartoolkit.markersystem.INyARMarkerSystemConfig;
 import jp.nyatla.nyartoolkit.markersystem.NyARMarkerSystemConfig;
 import android.content.res.AssetManager;

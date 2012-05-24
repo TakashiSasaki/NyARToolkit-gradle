@@ -30,7 +30,10 @@
  */
 package jp.nyatla.nyartoolkit.core.pca2d;
 
-import jp.nyatla.nyartoolkit.core.*;
+import jp.nyatla.nyartoolkit.core.NyARException;
+import jp.nyatla.nyartoolkit.core.NyARMat;
+import jp.nyatla.nyartoolkit.core.NyARMatPca;
+import jp.nyatla.nyartoolkit.core.NyARVec;
 import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix22;
 
 /**

@@ -25,7 +25,8 @@
 package jp.nyatla.nyartoolkit.core.utils;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.types.matrix.*;
+import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix22;
+import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix44;
 
 /**
  * このクラスは、遠近法を用いてPerspectiveパラメータを計算します。

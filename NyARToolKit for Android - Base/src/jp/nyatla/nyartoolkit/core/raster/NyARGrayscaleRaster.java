@@ -31,7 +31,8 @@ import jp.nyatla.nyartoolkit.core.pixeldriver.NyARGsPixelDriverFactory;
 import jp.nyatla.nyartoolkit.core.rasterdriver.INyARHistogramFromRaster;
 import jp.nyatla.nyartoolkit.core.rasterdriver.NyARHistogramFromRasterFactory;
 import jp.nyatla.nyartoolkit.core.squaredetect.NyARContourPickup;
-import jp.nyatla.nyartoolkit.core.types.*;
+import jp.nyatla.nyartoolkit.core.types.NyARBufferType;
+import jp.nyatla.nyartoolkit.core.types.NyARIntSize;
 
 /**
  * このクラスは、グレースケース画像を格納するラスタクラスです。

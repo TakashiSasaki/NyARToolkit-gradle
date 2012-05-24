@@ -31,8 +31,9 @@
 package jp.nyatla.nyartoolkit.core.labeling.artoolkit;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.raster.*;
-import jp.nyatla.nyartoolkit.core.types.*;
+import jp.nyatla.nyartoolkit.core.raster.NyARBinRaster;
+import jp.nyatla.nyartoolkit.core.types.NyARBufferType;
+import jp.nyatla.nyartoolkit.core.types.NyARIntSize;
 
 /**
  * このクラスは、ARToolKitのアルゴリズムと互換性のあるラベリングクラスです。

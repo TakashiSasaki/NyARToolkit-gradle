@@ -30,10 +30,11 @@
  */
 package jp.nyatla.nyartoolkit.core.pickup;
 
-import jp.nyatla.nyartoolkit.core.*;
+import jp.nyatla.nyartoolkit.core.NyARException;
+import jp.nyatla.nyartoolkit.core.NyARMat;
 import jp.nyatla.nyartoolkit.core.pixeldriver.INyARRgbPixelDriver;
-import jp.nyatla.nyartoolkit.core.raster.rgb.*;
-import jp.nyatla.nyartoolkit.core.types.*;
+import jp.nyatla.nyartoolkit.core.raster.rgb.INyARRgbRaster;
+import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
 
 
 /**

@@ -30,7 +30,8 @@
  */
 package jp.nyatla.nyartoolkit.core.squaredetect;
 
-import jp.nyatla.nyartoolkit.core.types.*;
+import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint2d;
+import jp.nyatla.nyartoolkit.core.types.NyARLinear;
 
 /**
  * このクラスは、矩形情報を格納します。

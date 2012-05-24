@@ -31,8 +31,9 @@
 package jp.nyatla.nyartoolkit.core.transmat.optimize.artoolkit;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.transmat.rotmatrix.*;
-import jp.nyatla.nyartoolkit.core.types.*;
+import jp.nyatla.nyartoolkit.core.transmat.rotmatrix.NyARRotMatrix_ARToolKit;
+import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint2d;
+import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint3d;
 
 /**
  * このクラスは、ARToolKit由来の回転行列最適化関数を定義します。

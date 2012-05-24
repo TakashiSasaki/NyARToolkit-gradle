@@ -33,7 +33,6 @@
  */
 package jp.androidgroup.nyartoolkit.markersystem.android;
 
-import android.util.Log;
 import jp.androidgroup.nyartoolkit.jni.YUV420sp2RGBInterface;
 import jp.nyatla.nyartoolkit.core.NyARException;
 import jp.nyatla.nyartoolkit.core.raster.rgb.NyARRgbRaster;
@@ -43,7 +42,7 @@ import jp.nyatla.nyartoolkit.jogl.utils.NyARGLUtil;
 import jp.nyatla.nyartoolkit.markersystem.INyARMarkerSystemConfig;
 import jp.nyatla.nyartoolkit.markersystem.NyARMarkerSystem;
 import jp.nyatla.nyartoolkit.markersystem.NyARSensor;
-//import jp.nyatla.nyartoolkit.utils.j2se.NyARBufferedImageRaster;
+import android.util.Log;
 
 /**
  * NyARToolKit Marker system を継承したandroid用のクラスです。

@@ -36,7 +36,6 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import jp.androidgroup.nyartoolkit.markersystem.android.NyARAndroidMarkerSystemFactory;
-
 import android.content.res.AssetManager;
 import android.opengl.GLSurfaceView;
 import android.util.Log;

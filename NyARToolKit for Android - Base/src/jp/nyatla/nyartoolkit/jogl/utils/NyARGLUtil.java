@@ -32,8 +32,8 @@ package jp.nyatla.nyartoolkit.jogl.utils;
 
 import jp.nyatla.nyartoolkit.core.param.NyARParam;
 import jp.nyatla.nyartoolkit.core.param.NyARPerspectiveProjectionMatrix;
-import jp.nyatla.nyartoolkit.core.types.*;
-import jp.nyatla.nyartoolkit.core.types.matrix.*;
+import jp.nyatla.nyartoolkit.core.types.NyARIntSize;
+import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix44;
 /**
  * このクラスは、NyARToolkitのデータ型と、OpenGLデータ型を変換する関数を定義します。
  * 描画系関数は{@link NyARGLDrawUtil}を参照してください。

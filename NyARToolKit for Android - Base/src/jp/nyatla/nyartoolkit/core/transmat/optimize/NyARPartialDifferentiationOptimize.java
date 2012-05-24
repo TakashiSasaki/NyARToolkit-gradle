@@ -31,11 +31,11 @@
 package jp.nyatla.nyartoolkit.core.transmat.optimize;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.param.*;
-
-import jp.nyatla.nyartoolkit.core.types.*;
-import jp.nyatla.nyartoolkit.core.types.matrix.*;
-import jp.nyatla.nyartoolkit.core.utils.*;
+import jp.nyatla.nyartoolkit.core.param.NyARPerspectiveProjectionMatrix;
+import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint2d;
+import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint3d;
+import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix33;
+import jp.nyatla.nyartoolkit.core.utils.NyAREquationSolver;
 
 class TSinCosValue{
 	public static TSinCosValue[] createArray(int i_size)

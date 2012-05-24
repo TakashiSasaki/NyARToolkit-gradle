@@ -35,8 +35,6 @@ package jp.androidgroup.nyartoolkit.wrapper;
 import java.io.IOException;
 import java.io.InputStream;
 
-import android.content.res.AssetManager;
-import android.util.Log;
 import jp.androidgroup.nyartoolkit.jni.YUV420sp2RGBInterface;
 import jp.nyatla.nyartoolkit.core.NyARCode;
 import jp.nyatla.nyartoolkit.core.NyARException;
@@ -46,6 +44,8 @@ import jp.nyatla.nyartoolkit.core.transmat.NyARTransMatResult;
 import jp.nyatla.nyartoolkit.core.types.NyARBufferType;
 import jp.nyatla.nyartoolkit.detector.NyARSingleDetectMarker;
 import jp.nyatla.nyartoolkit.jogl.utils.NyARGLUtil;
+import android.content.res.AssetManager;
+import android.util.Log;
 
 
 /**
@@ -336,9 +336,11 @@ public class NyARToolKitWrapper
 	public void setCapturFrame(byte[] frame)
 	{
 		Log.d(TAG, "setCapturFrame");
+		
 		// JNI を使って形式変換
 		byte[] rasterBuffer = new byte[rasterWidth * rasterHeight * 3];
 		YUV420sp2RGBInterface.decodeYUV420SP(rasterBuffer, frame, rasterWidth, rasterHeight, 1);
+		long s=System.currentTimeMillis();				
 		
 		try {
 			// NyARRaster にセット
@@ -361,6 +363,9 @@ public class NyARToolKitWrapper
 			Log.e(TAG, "Raster buffer write error.");
 			return;
 		}
+		long e=System.currentTimeMillis();	
+		Log.e(TAG, ">"+(e-s));
+		
 	}
 	
 	/**

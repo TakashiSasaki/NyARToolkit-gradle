@@ -31,8 +31,8 @@
 package jp.nyatla.nyartoolkit.core.labeling.artoolkit;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.raster.*;
-import jp.nyatla.nyartoolkit.core.types.*;
+import jp.nyatla.nyartoolkit.core.raster.NyARRaster_BasicClass;
+import jp.nyatla.nyartoolkit.core.types.NyARBufferType;
 
 /**
  *　このクラスは、{@link NyARLabeling_ARToolKit}の出力するラべリング画像を格納するラスタです。

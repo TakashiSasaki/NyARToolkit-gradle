@@ -24,7 +24,7 @@
  */
 package jp.nyatla.nyartoolkit.nyidmarker.data;
 
-import jp.nyatla.nyartoolkit.nyidmarker.*;
+import jp.nyatla.nyartoolkit.nyidmarker.NyIdMarkerPattern;
 
 /**
  * このクラスは、RawbitドメインのIdマーカをLongのシリアル値にするエンコーダです。

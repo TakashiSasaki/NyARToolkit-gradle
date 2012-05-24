@@ -29,8 +29,11 @@ import java.util.ArrayList;
 import jp.nyatla.nyartoolkit.core.NyARException;
 import jp.nyatla.nyartoolkit.core.raster.INyARGrayscaleRaster;
 import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
-import jp.nyatla.nyartoolkit.nyidmarker.*;
-import jp.nyatla.nyartoolkit.nyidmarker.data.*;
+import jp.nyatla.nyartoolkit.nyidmarker.NyIdMarkerParam;
+import jp.nyatla.nyartoolkit.nyidmarker.NyIdMarkerPattern;
+import jp.nyatla.nyartoolkit.nyidmarker.NyIdMarkerPickup;
+import jp.nyatla.nyartoolkit.nyidmarker.data.NyIdMarkerDataEncoder_RawBitId;
+import jp.nyatla.nyartoolkit.nyidmarker.data.NyIdMarkerData_RawBitId;
 
 public class NyIdList extends ArrayList<MarkerInfoNyId>
 {

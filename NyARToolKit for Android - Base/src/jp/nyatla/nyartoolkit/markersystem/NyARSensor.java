@@ -27,12 +27,15 @@ package jp.nyatla.nyartoolkit.markersystem;
 
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.raster.*;
-import jp.nyatla.nyartoolkit.core.raster.rgb.*;
+import jp.nyatla.nyartoolkit.core.raster.INyARGrayscaleRaster;
+import jp.nyatla.nyartoolkit.core.raster.NyARGrayscaleRaster;
+import jp.nyatla.nyartoolkit.core.raster.rgb.INyARRgbRaster;
 import jp.nyatla.nyartoolkit.core.rasterdriver.INyARHistogramFromRaster;
 import jp.nyatla.nyartoolkit.core.rasterdriver.INyARPerspectiveCopy;
-import jp.nyatla.nyartoolkit.core.rasterfilter.rgb2gs.*;
-import jp.nyatla.nyartoolkit.core.types.*;
+import jp.nyatla.nyartoolkit.core.rasterfilter.rgb2gs.INyARRgb2GsFilter;
+import jp.nyatla.nyartoolkit.core.types.NyARBufferType;
+import jp.nyatla.nyartoolkit.core.types.NyARHistogram;
+import jp.nyatla.nyartoolkit.core.types.NyARIntSize;
 
 
 
@@ -42,11 +45,11 @@ import jp.nyatla.nyartoolkit.core.types.*;
 public class NyARSensor
 {
 	protected NyARHistogram _gs_hist;
-	private INyARRgbRaster _ref_raster;
+	private INyARRgbRaster _ref_raster=null;
 	protected INyARGrayscaleRaster _gs_raster;
-	private long _src_ts;
-	private long _gs_id_ts;
-	private long _gs_hist_ts;
+	protected long _src_ts;
+	protected long _gs_id_ts;
+	protected long _gs_hist_ts;
 	public NyARSensor(NyARIntSize i_size) throws NyARException
 	{
 		this.initInstance(i_size);
@@ -87,7 +90,6 @@ public class NyARSensor
 		return this._pcopy;
 	}	
 	private INyARHistogramFromRaster _hist_drv=null;	
-	private INyARRaster _last_input_rasster=null;
 	private INyARPerspectiveCopy _pcopy;
 	private INyARRgb2GsFilter _rgb2gs=null;
 	/**
@@ -99,13 +101,12 @@ public class NyARSensor
 	public void update(INyARRgbRaster i_input) throws NyARException
 	{
 		//ラスタドライバの準備
-		if(this._last_input_rasster!=i_input){
+		if(this._ref_raster!=i_input){
 			this._rgb2gs=(INyARRgb2GsFilter) i_input.createInterface(INyARRgb2GsFilter.class);
 			this._pcopy=(INyARPerspectiveCopy) i_input.createInterface(INyARPerspectiveCopy.class);
-			this._last_input_rasster=i_input;
+			//RGB画像の差し替え
+			this._ref_raster=i_input;
 		}
-		//RGB画像の差し替え
-		this._ref_raster=i_input;
 		//ソースidのインクリメント
 		this._src_ts++;
 	}

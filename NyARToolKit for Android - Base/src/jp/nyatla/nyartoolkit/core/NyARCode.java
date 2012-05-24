@@ -34,8 +34,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StreamTokenizer;
 
-import jp.nyatla.nyartoolkit.core.match.*;
-import jp.nyatla.nyartoolkit.core.raster.*;
+import jp.nyatla.nyartoolkit.core.match.NyARMatchPattDeviationBlackWhiteData;
+import jp.nyatla.nyartoolkit.core.match.NyARMatchPattDeviationColorData;
+import jp.nyatla.nyartoolkit.core.raster.NyARRaster;
 import jp.nyatla.nyartoolkit.core.raster.rgb.INyARRgbRaster;
 import jp.nyatla.nyartoolkit.core.raster.rgb.NyARRgbRaster;
 import jp.nyatla.nyartoolkit.core.types.NyARBufferType;

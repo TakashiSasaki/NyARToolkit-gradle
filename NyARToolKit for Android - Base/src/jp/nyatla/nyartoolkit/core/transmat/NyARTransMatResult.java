@@ -33,7 +33,8 @@ package jp.nyatla.nyartoolkit.core.transmat;
 
 
 import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint3d;
-import jp.nyatla.nyartoolkit.core.types.matrix.*;
+import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix33;
+import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix44;
 
 /**
  * {@link INyARTransMat}の出力する、位置姿勢行列を受け取る行列クラスです。
