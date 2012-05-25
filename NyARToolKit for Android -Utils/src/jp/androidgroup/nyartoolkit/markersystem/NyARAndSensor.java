@@ -2,14 +2,13 @@ package jp.androidgroup.nyartoolkit.markersystem;
 
 import java.io.IOException;
 
-import jp.androidgroup.nyartoolkit.utils.CameraPreview;
 import jp.androidgroup.nyartoolkit.utils.NyARAndYUV420GsRaster;
 import jp.androidgroup.nyartoolkit.utils.NyARAndYUV420RgbRaster;
+import jp.androidgroup.nyartoolkit.utils.camera.CameraPreview;
 import jp.nyatla.nyartoolkit.core.NyARException;
 import jp.nyatla.nyartoolkit.core.raster.INyARGrayscaleRaster;
 import jp.nyatla.nyartoolkit.core.types.NyARIntSize;
 import jp.nyatla.nyartoolkit.markersystem.NyARSensor;
-import android.hardware.Camera;
 /**
  * この関数は、非同期カメライベントをラップした{@see NyARSensor}です。
  * 画像取得APIにアクセスするときには、オブジェクトをsynchronizedしてください。

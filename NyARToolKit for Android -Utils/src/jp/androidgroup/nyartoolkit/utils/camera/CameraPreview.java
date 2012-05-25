@@ -32,17 +32,12 @@
  *  Yasuhide Matsumoto
  *  Fuu Rokubou
  */
-package jp.androidgroup.nyartoolkit.utils;
+package jp.androidgroup.nyartoolkit.utils.camera;
 
 import java.io.IOException;
 import java.util.List;
 
-import javax.microedition.khronos.opengles.GL10;
-
 import jp.androidgroup.nyartoolkit.sketch.AndSketch;
-import jp.androidgroup.nyartoolkit.sketch.IAndSketchEventListerner;
-
-import android.content.Context;
 import android.graphics.ImageFormat;
 import android.hardware.Camera;
 import android.hardware.Camera.Size;
@@ -62,7 +57,7 @@ import android.view.SurfaceView;
  * @author nyatla
  *
  */
-public class CameraPreview extends SurfaceView implements IAndSketchEventListerner,SurfaceHolder.Callback,Camera.PreviewCallback
+public class CameraPreview extends SurfaceView implements AndSketch.IAndSketchEventListerner,SurfaceHolder.Callback,Camera.PreviewCallback
 {
 	public interface IOnPreviewFrame
 	{
@@ -75,14 +70,20 @@ public class CameraPreview extends SurfaceView implements IAndSketchEventListern
 	private int _cap_index;
 	private IOnPreviewFrame _callback;
 	/**
+	 * Must call in onSetup
 	 * @param context
-	 * @param attrs
 	 */
 	public CameraPreview(AndSketch context)
 	{
 		super(context);
 		try {
-			context.addListener(this);//called onStart by addlistener
+			context._evlistener.add(this);
+			this._camera_ref=Camera.open();
+			if(this._is_enabled){
+				this._camera_ref.setPreviewDisplay(this._holder);
+				this._camera_ref.startPreview();
+			}			
+			
 			this._holder = getHolder();
 			this._holder.addCallback(this);
 			this._holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
@@ -209,17 +210,7 @@ public class CameraPreview extends SurfaceView implements IAndSketchEventListern
 			((AndSketch)this.getContext())._finish(e);
 		}
 	}
-	@Override
-	public void onStart() throws Exception
-	{
-		this._camera_ref=Camera.open();
-		if(this._is_enabled){
-			this._camera_ref.setPreviewDisplay(this._holder);
-			this._camera_ref.startPreview();
-		}
-	}
-
-	public synchronized void onStop() throws Exception
+	public synchronized void onAcStop() throws Exception
 	{
 		if(this._camera_ref!=null){
 			this._camera_ref.stopPreview();		
@@ -230,20 +221,16 @@ public class CameraPreview extends SurfaceView implements IAndSketchEventListern
 		}
 	}
 	@Override
-	public void onDestroy() throws Exception
+	public void onAcDestroy() throws Exception
 	{
 		assert(this._camera_ref==null);
 	}
 	@Override
-	public void onResume()
+	public void onAcResume()
 	{
-		// TODO Auto-generated method stub
-		
 	}
 	@Override
-	public void onGlChanged(GL10 i_gl,int i_width,int i_height) {
-		// TODO Auto-generated method stub
-		
+	public void onAcPause()
+	{
 	}
-
 }

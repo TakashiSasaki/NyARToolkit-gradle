@@ -7,7 +7,6 @@ import jp.nyatla.nyartoolkit.core.raster.INyARGrayscaleRaster;
 import jp.nyatla.nyartoolkit.core.raster.INyARRaster;
 import jp.nyatla.nyartoolkit.core.raster.NyARGrayscaleRaster;
 import jp.nyatla.nyartoolkit.core.rasterdriver.INyARHistogramFromRaster;
-import jp.nyatla.nyartoolkit.core.rasterdriver.NyARHistogramFromRasterFactory;
 import jp.nyatla.nyartoolkit.core.squaredetect.NyARContourPickup;
 import jp.nyatla.nyartoolkit.core.types.NyARBufferType;
 import jp.nyatla.nyartoolkit.core.types.NyARHistogram;
@@ -183,7 +182,8 @@ class NyARContourPickup_YUV420Reader extends NyARContourPickup_Base
 			}
 			if (i == 8) {
 				//8方向全て調べたけどラベルが無いよ？
-				throw new NyARException();// return(-1);
+				return false;
+//				throw new NyARException();// return(-1);
 			}				
 			// xcoordとycoordをc,rにも保存
 			c = c + xdir[dir];
