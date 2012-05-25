@@ -113,9 +113,9 @@ public class NyARGLUtil
 	 * @param o_gl_projection
 	 * OpenGLスタイルのProjectionMatrixです。double[16]を指定します。
 	 */
-	public static void toCameraFrustumRHf(NyARParam i_arparam, double i_scale, double i_near, double i_far, float[] o_gl_projection)
+	public static void toCameraFrustumRH(NyARParam i_arparam, double i_scale, double i_near, double i_far, float[] o_gl_projection)
 	{
-		toCameraFrustumRHf(i_arparam.getPerspectiveProjectionMatrix(),i_arparam.getScreenSize(),i_scale,i_near,i_far,o_gl_projection);
+		toCameraFrustumRH(i_arparam.getPerspectiveProjectionMatrix(),i_arparam.getScreenSize(),i_scale,i_near,i_far,o_gl_projection);
 		return;
 	}
 	/**
@@ -132,7 +132,7 @@ public class NyARGLUtil
 	 * @param o_gl_projection
 	 * {@link #toCameraFrustumRH(NyARParam i_arparam,double i_scale,double i_near,double i_far,double[] o_gl_projection)}を参照。
 	 */
-	public static void toCameraFrustumRHf(NyARPerspectiveProjectionMatrix i_promat, NyARIntSize i_size, double i_scale, double i_near, double i_far, float[] o_gl_projection)
+	public static void toCameraFrustumRH(NyARPerspectiveProjectionMatrix i_promat, NyARIntSize i_size, double i_scale, double i_near, double i_far, float[] o_gl_projection)
 	{
 		NyARDoubleMatrix44 m = new NyARDoubleMatrix44();
 		i_promat.makeCameraFrustumRH(i_size.w, i_size. h, i_near*i_scale, i_far*i_scale, m);
@@ -187,7 +187,7 @@ public class NyARGLUtil
 	 * @param o_gl_result
 	 * OpenGLスタイルのProjectionMatrixです。double[16]を指定します。
 	 */
-	public static void toCameraViewRHf(NyARDoubleMatrix44 mat, double i_scale, float[] o_gl_result)
+	public static void toCameraViewRH(NyARDoubleMatrix44 mat, double i_scale, float[] o_gl_result)
 	{
 		o_gl_result[0 + 0 * 4] = (float)mat.m00; 
 		o_gl_result[1 + 0 * 4] = (float)-mat.m10;
