@@ -1,7 +1,7 @@
 package jp.androidgroup.nyartoolkit.markersystem;
 
+import jp.androidgroup.nyartoolkit.utils.gl.NyARGLUtil;
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.jogl.utils.NyARGLUtil;
 import jp.nyatla.nyartoolkit.markersystem.INyARMarkerSystemConfig;
 import jp.nyatla.nyartoolkit.markersystem.NyARMarkerSystem;
 
