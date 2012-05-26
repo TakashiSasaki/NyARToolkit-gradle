@@ -8,12 +8,18 @@ import jp.androidgroup.nyartoolkit.markersystem.NyARAndSensor;
 import jp.androidgroup.nyartoolkit.sketch.AndSketch;
 import jp.androidgroup.nyartoolkit.utils.camera.CameraPreview;
 import jp.androidgroup.nyartoolkit.utils.gl.*;
+import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint3d;
 import jp.nyatla.nyartoolkit.markersystem.NyARMarkerSystemConfig;
 import android.content.res.AssetManager;
 import android.hardware.Camera;
+import android.view.MotionEvent;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 
+/**
+ * Hiroマーカの表面を移動する立方体を表示します。
+ * マーカを撮影しながら画面をタッチして下さい。
+ */
 public class MarkerPlaneActivity extends AndSketch implements AndGLView.IGLFunctionEvent
 {
 	CameraPreview _camera_preview;
@@ -47,7 +53,7 @@ public class MarkerPlaneActivity extends AndSketch implements AndGLView.IGLFunct
 	NyARAndMarkerSystem _ms;
 	private int _mid;
 	AndGLFpsLabel fps;
-	AndGLBitmapSprite _bmp;
+	AndGLBox box;
 	AndGLDebugDump _debug=null;
 	AndGLTextLabel text;
 	public void setupGL(GL10 gl)
@@ -66,9 +72,9 @@ public class MarkerPlaneActivity extends AndSketch implements AndGLView.IGLFunct
 			gl.glLoadMatrixf(this._ms.getGlProjectionMatrix(),0);
 			this.fps=new AndGLFpsLabel(this._glv,"MarkerPlaneActivity");
 			this.fps.prefix=this._cap_size.width+"x"+this._cap_size.height+":";
-			this._bmp=new AndGLBitmapSprite(this._glv,64,64);
 			this._debug=new AndGLDebugDump(this._glv);
 			this.text=new AndGLTextLabel(this._glv);
+			this.box=new AndGLBox(this._glv,40);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -96,9 +102,11 @@ public class MarkerPlaneActivity extends AndSketch implements AndGLView.IGLFunct
 				this._ms.update(this._ss);
 				if(this._ms.isExistMarker(this._mid)){
 			        this.text.draw("found"+this._ms.getConfidence(this._mid),0,16);
-					this._ms.getMarkerPlaneImage(this._mid,this._ss,-40,-40,80,80,this._bmp.lockBitmap());
-					this._bmp.unlockBitmap();
-					this._bmp.draw(0,50);
+					NyARDoublePoint3d p=new NyARDoublePoint3d();
+					this._ms.getMarkerPlanePos(this._mid,tx,ty,p);
+					gl.glMatrixMode(GL10.GL_MODELVIEW);
+					gl.glLoadMatrixf(this._ms.getGlMarkerMatrix(this._mid),0);
+					this.box.draw((float)p.x,(float)p.y,(float)p.z+20);
 				}
 			}
 		}catch(Exception e)
@@ -106,5 +114,17 @@ public class MarkerPlaneActivity extends AndSketch implements AndGLView.IGLFunct
 			ex=e;
 		}
 	}
+	private int tx=0;
+	private int ty=0;
+    public boolean onTouchEvent(MotionEvent event)
+    {
+	    //画面サイズ→OpenGLサイズへの変換
+		int h = this.getWindowManager().getDefaultDisplay().getHeight();
+		int w = this.getWindowManager().getDefaultDisplay().getWidth();
+
+    	tx = (int)(event.getX()*this._cap_size.width/w);
+		ty = (int)(event.getY()*this._cap_size.height/h);
+		return true;
+    }	
 	Exception ex=null;
 }

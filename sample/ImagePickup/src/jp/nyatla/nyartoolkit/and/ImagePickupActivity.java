@@ -14,6 +14,12 @@ import android.hardware.Camera;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 
+/**
+ * Hiroマーカ平面から画像を取得します。
+ * 画像取得APIは低速です。解像度の高いものは避けてください。
+ * 撮影画面全体のキャプチャをするときは、CameraPreviewから直接画像を得た方が良いです。
+ *
+ */
 public class ImagePickupActivity extends AndSketch implements AndGLView.IGLFunctionEvent
 {
 	CameraPreview _camera_preview;

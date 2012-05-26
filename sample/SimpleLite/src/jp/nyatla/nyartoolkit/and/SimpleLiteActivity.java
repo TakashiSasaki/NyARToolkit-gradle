@@ -14,6 +14,11 @@ import android.hardware.Camera;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 
+/**
+ * Hiroマーカの上にカラーキューブを表示します。
+ * 定番のサンプルです。
+ *
+ */
 public class SimpleLiteActivity extends AndSketch implements AndGLView.IGLFunctionEvent
 {
 	CameraPreview _camera_preview;
