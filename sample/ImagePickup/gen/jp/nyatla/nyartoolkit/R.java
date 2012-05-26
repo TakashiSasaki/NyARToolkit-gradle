@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package jp.nyatla.nyartoolkit.and;
+package jp.nyatla.nyartoolkit;
 
 public final class R {
     public static final class attr {
