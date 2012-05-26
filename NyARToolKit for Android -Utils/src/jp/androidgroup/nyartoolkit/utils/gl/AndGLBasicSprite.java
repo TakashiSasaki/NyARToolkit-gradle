@@ -12,7 +12,7 @@ import android.opengl.GLUtils;
 
 
 /**
- * スプライトテクスチャ。
+ * スプライトテクスチャのベースクラス。
  * http://pr0jectze10.blogspot.jp/2011/02/androidopengl.html
  * を参考にしました。
  */

@@ -47,6 +47,7 @@ public class SimpleLiteActivity extends AndSketch implements AndGLView.IGLFuncti
 	private int _mid;
 	AndGLTextLabel text;
 	AndGLBox box;
+	AndGLFpsLabel fps;
 	
 	public void setupGL(GL10 gl)
 	{
@@ -65,6 +66,8 @@ public class SimpleLiteActivity extends AndSketch implements AndGLView.IGLFuncti
 			this.text=new AndGLTextLabel(this._glv);
 			this.box=new AndGLBox(this._glv,40);
 			this._debug=new AndGLDebugDump(this._glv);
+			this.fps=new AndGLFpsLabel(this._glv,"MarkerPlaneActivity");
+			this.fps.prefix=this._cap_size.width+"x"+this._cap_size.height+":";
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -72,7 +75,6 @@ public class SimpleLiteActivity extends AndSketch implements AndGLView.IGLFuncti
 			this.finish();
 		}
 	}
-	long last_time=System.currentTimeMillis();
 	AndGLDebugDump _debug=null;
 	/**
 	 * 継承したクラスで表示したいものを実装してください
@@ -81,19 +83,16 @@ public class SimpleLiteActivity extends AndSketch implements AndGLView.IGLFuncti
 	public void drawGL(GL10 gl)
 	{
 		try{
-		//背景塗り潰し色の指定
-		gl.glClearColor(0,0,0,0);
-        //背景塗り潰し
-        gl.glClear(GL10.GL_COLOR_BUFFER_BIT|GL10.GL_DEPTH_BUFFER_BIT);
-        if(ex!=null){
-        	_debug.draw(ex);
-        	return;
-        }
-		System.currentTimeMillis();
-        long ct=System.currentTimeMillis();
-        this.text.draw(this._cap_size.width+"x"+this._cap_size.height+":"+(1000/(ct-this.last_time))+"fps",0,0);
-        this.last_time=ct;
-		synchronized(this._ss){
+			//背景塗り潰し色の指定
+			gl.glClearColor(0,0,0,0);
+	        //背景塗り潰し
+	        gl.glClear(GL10.GL_COLOR_BUFFER_BIT|GL10.GL_DEPTH_BUFFER_BIT);
+	        if(ex!=null){
+	        	_debug.draw(ex);
+	        	return;
+	        }
+	        fps.draw(0, 0);
+			synchronized(this._ss){
 				this._ms.update(this._ss);
 				if(this._ms.isExistMarker(this._mid)){
 			        this.text.draw("found"+this._ms.getConfidence(this._mid),0,16);

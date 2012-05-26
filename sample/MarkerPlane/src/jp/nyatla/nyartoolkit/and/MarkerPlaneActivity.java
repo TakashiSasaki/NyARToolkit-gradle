@@ -40,14 +40,16 @@ public class MarkerPlaneActivity extends AndSketch implements AndGLView.IGLFunct
 		//GLview
 		this._glv=new AndGLView(this);
 		fr.addView(this._glv, 0,new LayoutParams(screen_w,screen_h));
+		
 	}
 
 	NyARAndSensor _ss;
 	NyARAndMarkerSystem _ms;
 	private int _mid;
+	AndGLFpsLabel fps;
+	AndGLBitmapSprite _bmp;
+	AndGLDebugDump _debug=null;
 	AndGLTextLabel text;
-	AndGLBox box;
-	
 	public void setupGL(GL10 gl)
 	{
 		try
@@ -62,9 +64,11 @@ public class MarkerPlaneActivity extends AndSketch implements AndGLView.IGLFunct
 			//setup openGL Camera Frustum
 			gl.glMatrixMode(GL10.GL_PROJECTION);
 			gl.glLoadMatrixf(this._ms.getGlProjectionMatrix(),0);
-			this.text=new AndGLTextLabel(this._glv);
-			this.box=new AndGLBox(this._glv,40);
+			this.fps=new AndGLFpsLabel(this._glv,"MarkerPlaneActivity");
+			this.fps.prefix=this._cap_size.width+"x"+this._cap_size.height+":";
+			this._bmp=new AndGLBitmapSprite(this._glv,64,64);
 			this._debug=new AndGLDebugDump(this._glv);
+			this.text=new AndGLTextLabel(this._glv);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -72,8 +76,6 @@ public class MarkerPlaneActivity extends AndSketch implements AndGLView.IGLFunct
 			this.finish();
 		}
 	}
-	long last_time=System.currentTimeMillis();
-	AndGLDebugDump _debug=null;
 	/**
 	 * 継承したクラスで表示したいものを実装してください
 	 * @param gl
@@ -81,27 +83,24 @@ public class MarkerPlaneActivity extends AndSketch implements AndGLView.IGLFunct
 	public void drawGL(GL10 gl)
 	{
 		try{
-		//背景塗り潰し色の指定
-		gl.glClearColor(0,0,0,0);
-        //背景塗り潰し
-        gl.glClear(GL10.GL_COLOR_BUFFER_BIT|GL10.GL_DEPTH_BUFFER_BIT);
-        if(ex!=null){
-        	_debug.draw(ex);
-        	return;
-        }
-		System.currentTimeMillis();
-        long ct=System.currentTimeMillis();
-        this.text.draw(this._cap_size.width+"x"+this._cap_size.height+":"+(1000/(ct-this.last_time))+"fps",0,0);
-        this.last_time=ct;
-		synchronized(this._ss){
+			//背景塗り潰し色の指定
+			gl.glClearColor(0,0,0,0);
+	        //背景塗り潰し
+	        gl.glClear(GL10.GL_COLOR_BUFFER_BIT|GL10.GL_DEPTH_BUFFER_BIT);
+	        if(ex!=null){
+	        	_debug.draw(ex);
+	        	return;
+	        }
+	        this.fps.draw(0,0);
+			synchronized(this._ss){
 				this._ms.update(this._ss);
 				if(this._ms.isExistMarker(this._mid)){
 			        this.text.draw("found"+this._ms.getConfidence(this._mid),0,16);
-					gl.glMatrixMode(GL10.GL_MODELVIEW);
-					gl.glLoadMatrixf(this._ms.getGlMarkerMatrix(this._mid),0);
-					this.box.draw(0,0,20);
+					this._ms.getMarkerPlaneImage(this._mid,this._ss,-40,-40,80,80,this._bmp.lockBitmap());
+					this._bmp.unlockBitmap();
+					this._bmp.draw(0,50);
 				}
-		}
+			}
 		}catch(Exception e)
 		{
 			ex=e;

@@ -6,6 +6,9 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Typeface;
 
+/**
+ * 1行の文字列を表示します。
+ */
 public class AndGLTextLabel extends AndGLBasicSprite
 {
 	protected final Paint fgpaint= new Paint();
@@ -40,10 +43,10 @@ public class AndGLTextLabel extends AndGLBasicSprite
     	//文字列の内容が異なっていたら、テクスチャ/BMPの再構築
     	int lw=this._last_str_w;
     	int lh=this._last_str_h;
-//    	if(i_s.compareTo(this._last_str)!=0){
+    	if(i_s.compareTo(this._last_str)!=0){
     		//bitmapの再構築を試行
-	    	int w=(int)Math.ceil(this.fgpaint.measureText(i_s));
-	    	int h=(int)Math.ceil(Math.abs(fontMetrics.ascent) +Math.abs(fontMetrics.descent) + Math.abs(fontMetrics.leading));
+	    	int w=this._last_str_w=(int)Math.ceil(this.fgpaint.measureText(i_s));
+	    	int h=this._last_str_h=(int)Math.ceil(Math.abs(fontMetrics.ascent) +Math.abs(fontMetrics.descent) + Math.abs(fontMetrics.leading));
 	    	//ビットマップのサイズをチェックしてリサイズ
 	    	int s=AndGLHelper.getPow2Size(w,h);
 	    	if(s> this._image.getWidth()|| s>this._image.getHeight()){
@@ -57,13 +60,11 @@ public class AndGLTextLabel extends AndGLBasicSprite
 	    		lw=lh=s;
 	    	}
 	    	this._last_str=i_s;
-//    	}
+    	}
     	//埋め戻し
 		this._canvas.drawRect(0, 0,lw,lh,this.bgpaint);
 		this._canvas.drawText(i_s,0, Math.abs(fontMetrics.ascent),this.fgpaint);
     	this.sync();
-		super.draw(i_dx, i_dy,w,h, 0,0);
-		this._last_str_w=w;
-		this._last_str_h=h;
+		super.draw(i_dx, i_dy,this._last_str_w,this._last_str_h, 0,0);
 	}
 }

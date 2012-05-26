@@ -6,7 +6,10 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.opengles.GL10;
 
 
-
+/**
+ * 立方体の表示クラスです。
+ *
+ */
 public class AndGLBox  implements AndGLView.IGLViewEventListener
 {
 	private GL10 _ref_gl;

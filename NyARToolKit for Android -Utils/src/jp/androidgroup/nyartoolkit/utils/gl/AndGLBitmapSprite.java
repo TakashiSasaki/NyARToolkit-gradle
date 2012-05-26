@@ -2,6 +2,9 @@ package jp.androidgroup.nyartoolkit.utils.gl;
 
 import android.graphics.Bitmap;
 
+/**
+ * Bitmapをスプライトとして表示するクラスです。
+ */
 public class AndGLBitmapSprite extends AndGLBasicSprite
 {
 	private int _internal_w;

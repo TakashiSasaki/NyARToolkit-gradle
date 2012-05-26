@@ -5,6 +5,9 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
+/**
+ * OpenGL用のヘルパ関数をまとめます。
+ */
 public class AndGLHelper
 {
 	public static final int TEXTURE_CHANNEL=GL10.GL_TEXTURE0;
