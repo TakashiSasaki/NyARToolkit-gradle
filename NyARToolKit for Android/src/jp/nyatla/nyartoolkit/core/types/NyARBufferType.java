@@ -163,6 +163,7 @@ public class NyARBufferType
 	 * RGB形式。バッファは、JavaのBufferedImage型オブジェクト
 	 */
 	public static final int OBJECT_Java_BufferedImage= OBJECT_Java|0x01;
+	public static final int OBJECT_And_Bitmap= OBJECT_Java|0x11;
 		
 	/**
 	 * RGB形式。バッファは、ActionScript3のBitmapData型オブジェクト

@@ -182,8 +182,7 @@ class NyARContourPickup_YUV420Reader extends NyARContourPickup_Base
 			}
 			if (i == 8) {
 				//8方向全て調べたけどラベルが無いよ？
-				return false;
-//				throw new NyARException();// return(-1);
+				throw new NyARException();// return(-1);
 			}				
 			// xcoordとycoordをc,rにも保存
 			c = c + xdir[dir];
@@ -254,16 +253,15 @@ class NyARRlePixelDriver_YUV420Reader implements NyARLabeling_Rle.IRasterDriver
 	public int xLineToRle(int i_x,int i_y,int i_len,int i_th,NyARLabeling_Rle.RleElement[] i_out) throws NyARException
 	{
 		byte[] buf=(byte[])this._ref_raster.getBuffer();
-		int w=this._ref_raster.getWidth();
 		int current = 0;
 		int r = -1;
 		// 行確定開始
-		int st=i_x;
+		int st=i_x+this._ref_raster.getWidth()*i_y;
 		int x = st;
 		final int right_edge = st + i_len - 1;
 		while (x < right_edge) {
 			// 暗点(0)スキャン
-			if ((0xff & buf[x+w*i_y]) > i_th) {
+			if ((0xff & buf[x]) > i_th) {
 				x++;//明点
 				continue;
 			}
@@ -273,7 +271,7 @@ class NyARRlePixelDriver_YUV420Reader implements NyARLabeling_Rle.IRasterDriver
 			r++;// 暗点+1
 			x++;
 			while (x < right_edge) {
-				if ((0xff & buf[x+w*i_y]) > i_th) {
+				if ((0xff & buf[x]) > i_th) {
 					// 明点(1)→暗点(0)配列終了>登録
 					i_out[current].r = r;
 					current++;
@@ -288,7 +286,7 @@ class NyARRlePixelDriver_YUV420Reader implements NyARLabeling_Rle.IRasterDriver
 			}
 		}
 		// 最後の1点だけ判定方法が少し違うの。
-		if ((0xff & buf[x+w*i_y]) > i_th) {
+		if ((0xff &buf[x]) > i_th) {
 			// 明点→rカウント中なら暗点配列終了>登録
 			if (r >= 0) {
 				i_out[current].r = r;

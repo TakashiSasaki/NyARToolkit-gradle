@@ -109,9 +109,9 @@ public class CameraPreview extends SurfaceView implements AndSketch.IAndSketchEv
 		}
 		this._cap_buf=new byte[2][cparam.getPreviewSize().width*cparam.getPreviewSize().height*ImageFormat.getBitsPerPixel(ImageFormat.NV21)/8];
 		this._camera_ref.setPreviewCallbackWithBuffer(this);
-		this._cap_index=0;
+		this._cap_index=1;
 		this._camera_ref.startPreview();
-		this._camera_ref.addCallbackBuffer(this._cap_buf[this._cap_index++]);
+		this._camera_ref.addCallbackBuffer(this._cap_buf[this._cap_index]);
 		this._is_enabled=true;
 	}
 	public void stop() throws IOException
@@ -131,10 +131,10 @@ public class CameraPreview extends SurfaceView implements AndSketch.IAndSketchEv
 	@Override
 	public void onPreviewFrame(byte[] data, Camera camera)
 	{
+		this._cap_index=(this._cap_index+1)%2;
 		//callEvent;
 		this._callback.onPreviewFrame(data);
-		this._camera_ref.addCallbackBuffer(this._cap_buf[this._cap_index++]);
-		this._cap_index=(this._cap_index+1)%2;
+		this._camera_ref.addCallbackBuffer(this._cap_buf[this._cap_index]);
 	}		
 	/**
 	 * 指定したFPSに最も近いFPSを返す。

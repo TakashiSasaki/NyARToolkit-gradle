@@ -1,5 +1,6 @@
 package jp.androidgroup.nyartoolkit.utils;
 
+import jp.androidgroup.nyartoolkit.utils.gl.AndGLDebugDump;
 import jp.nyatla.nyartoolkit.core.NyARException;
 import jp.nyatla.nyartoolkit.core.pixeldriver.INyARGsPixelDriver;
 import jp.nyatla.nyartoolkit.core.pixeldriver.INyARRgbPixelDriver;
@@ -170,10 +171,8 @@ final class AndYUV420RgbPixelReader implements INyARRgbPixelDriver
 		if (y < 0){
 			y = 0;
 		}
-		int uvp = this._frame_size + (i_x+w/2*i_y);
-		if(uvp+1>=buf.length){
-			Log.d("","WW");
-		}
+		int uvp = this._frame_size + ((i_x>>1)+(i_y>>1)*(w/2))*2;
+
 		int v = (0xff & buf[uvp]) - 128;
 		int u = (0xff & buf[uvp+1]) - 128;
 		int y1192 = 1192 * y;
@@ -201,7 +200,7 @@ final class AndYUV420RgbPixelReader implements INyARRgbPixelDriver
 			if (y < 0){
 				y = 0;
 			}
-			int uvp = this._frame_size + ((i_y[i]*w+i_x[i])>>1);
+			int uvp = this._frame_size +((i_x[i]>>1)+(i_y[i]>>1)*(w/2))*2;
 			int v = (0xff & buf[uvp]) - 128;
 			int u = (0xff & buf[uvp+1]) - 128;
 			int y1192 = 1192 * y;
