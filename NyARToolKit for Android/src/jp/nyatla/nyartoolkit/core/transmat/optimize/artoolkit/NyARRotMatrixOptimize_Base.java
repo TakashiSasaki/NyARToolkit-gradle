@@ -31,12 +31,10 @@
 package jp.nyatla.nyartoolkit.core.transmat.optimize.artoolkit;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.param.NyARPerspectiveProjectionMatrix;
-import jp.nyatla.nyartoolkit.core.transmat.rotmatrix.NyARRotMatrix_ARToolKit;
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint2d;
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint3d;
-import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix33;
-import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix34;
+import jp.nyatla.nyartoolkit.core.param.*;
+import jp.nyatla.nyartoolkit.core.transmat.rotmatrix.*;
+import jp.nyatla.nyartoolkit.core.types.matrix.*;
+import jp.nyatla.nyartoolkit.core.types.*;
 
 /**
  * このクラスは、ARToolKit由来の姿勢行列最適化処理を実装します。

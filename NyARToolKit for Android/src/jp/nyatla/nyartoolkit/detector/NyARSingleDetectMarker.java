@@ -30,30 +30,19 @@
  */
 package jp.nyatla.nyartoolkit.detector;
 
-import jp.nyatla.nyartoolkit.core.NyARCode;
-import jp.nyatla.nyartoolkit.core.NyARException;
+import jp.nyatla.nyartoolkit.core.*;
 import jp.nyatla.nyartoolkit.core.match.NyARMatchPattDeviationColorData;
 import jp.nyatla.nyartoolkit.core.match.NyARMatchPattResult;
 import jp.nyatla.nyartoolkit.core.match.NyARMatchPatt_Color_WITHOUT_PCA;
 import jp.nyatla.nyartoolkit.core.param.NyARParam;
 import jp.nyatla.nyartoolkit.core.pickup.INyARColorPatt;
-import jp.nyatla.nyartoolkit.core.pickup.NyARColorPatt_O3;
-import jp.nyatla.nyartoolkit.core.pickup.NyARColorPatt_Perspective;
 import jp.nyatla.nyartoolkit.core.raster.NyARBinRaster;
-import jp.nyatla.nyartoolkit.core.raster.rgb.INyARRgbRaster;
+import jp.nyatla.nyartoolkit.core.raster.rgb.*;
 import jp.nyatla.nyartoolkit.core.rasterfilter.rgb2gs.INyARRgb2GsFilterArtkTh;
-import jp.nyatla.nyartoolkit.core.squaredetect.NyARCoord2Linear;
-import jp.nyatla.nyartoolkit.core.squaredetect.NyARSquare;
-import jp.nyatla.nyartoolkit.core.squaredetect.NyARSquareContourDetector_ARToolKit;
-import jp.nyatla.nyartoolkit.core.squaredetect.NyARSquareContourDetector_Rle;
-import jp.nyatla.nyartoolkit.core.transmat.INyARTransMat;
-import jp.nyatla.nyartoolkit.core.transmat.NyARRectOffset;
-import jp.nyatla.nyartoolkit.core.transmat.NyARTransMat;
-import jp.nyatla.nyartoolkit.core.transmat.NyARTransMatResult;
-import jp.nyatla.nyartoolkit.core.transmat.NyARTransMat_ARToolKit;
-import jp.nyatla.nyartoolkit.core.types.NyARIntCoordinates;
-import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
-import jp.nyatla.nyartoolkit.core.types.NyARIntSize;
+import jp.nyatla.nyartoolkit.core.squaredetect.*;
+import jp.nyatla.nyartoolkit.core.pickup.*;
+import jp.nyatla.nyartoolkit.core.types.*;
+import jp.nyatla.nyartoolkit.core.transmat.*;
 
 /**
  * このクラスは、1個のマーカを取り扱うマーカ検出器を定義します。
@@ -316,7 +305,7 @@ class NyARSingleDetectMarker_ARTKv2 extends NyARSingleDetectMarker
 	/**
 	 * ARTKラべリングを使った矩形検出機へのブリッジ
 	 */
-	public static class ARTKDetector extends NyARSquareContourDetector_ARToolKit
+	public static class ARTKDetector extends NyARSquareContourDetector_ARToolKit implements NyARSquareContourDetector.CbHandler
 	{
 		private NyARSingleDetectMarker _parent;
 		public ARTKDetector(NyARSingleDetectMarker i_parent,NyARIntSize i_size) throws NyARException
@@ -324,7 +313,7 @@ class NyARSingleDetectMarker_ARTKv2 extends NyARSingleDetectMarker
 			super(i_size);
 			this._parent=i_parent;
 		}
-		protected void onSquareDetect(NyARIntCoordinates i_coord,int[] i_vertex_index) throws NyARException
+		public void detectMarkerCallback(NyARIntCoordinates i_coord,int[] i_vertex_index) throws NyARException
 		{
 			this._parent.updateSquareInfo(i_coord, i_vertex_index);
 		}	
@@ -339,7 +328,7 @@ class NyARSingleDetectMarker_ARTKv2 extends NyARSingleDetectMarker
 	protected void execDetectMarker() throws NyARException
 	{
 		//矩形を探す(戻り値はコールバック関数で受け取る。)
-		this._square_detect.detectMarker(this._bin_raster);
+		this._square_detect.detectMarker(this._bin_raster,this._square_detect);
 		
 	}
 }
@@ -356,7 +345,7 @@ class NyARSingleDetectMarker_NyARTK_FITTING_ARTKv2 extends NyARSingleDetectMarke
 	protected void execDetectMarker() throws NyARException
 	{
 		//矩形を探す(戻り値はコールバック関数で受け取る。)
-		this._square_detect.detectMarker(this._bin_raster);
+		this._square_detect.detectMarker(this._bin_raster,this._square_detect);
 	}	
 }
 /**
@@ -370,7 +359,7 @@ class NyARSingleDetectMarker_NyARTK extends NyARSingleDetectMarker
 	/**
 	 * RleLabelingを使った矩形検出機
 	 */
-	private class RleDetector extends NyARSquareContourDetector_Rle
+	private class RleDetector extends NyARSquareContourDetector_Rle implements NyARSquareContourDetector.CbHandler
 	{
 		NyARSingleDetectMarker _parent;
 		public RleDetector(NyARSingleDetectMarker i_parent,NyARIntSize i_size) throws NyARException
@@ -378,9 +367,11 @@ class NyARSingleDetectMarker_NyARTK extends NyARSingleDetectMarker
 			super(i_size);
 			this._parent=i_parent;
 		}
-		protected void onSquareDetect(NyARIntCoordinates i_coord,int[] i_vertex_index) throws NyARException
+
+		public void detectMarkerCallback(NyARIntCoordinates i_coord,int[] i_vertex_index) throws NyARException
 		{
 			this._parent.updateSquareInfo(i_coord, i_vertex_index);
+			
 		}
 	}
 	
@@ -394,7 +385,7 @@ class NyARSingleDetectMarker_NyARTK extends NyARSingleDetectMarker
 	protected void execDetectMarker() throws NyARException
 	{
 		//矩形を探す(戻り値はコールバック関数で受け取る。)
-		this._square_detect.detectMarker(this._bin_raster,0);
+		this._square_detect.detectMarker(this._bin_raster,0,this._square_detect);
 		
 	}
 }

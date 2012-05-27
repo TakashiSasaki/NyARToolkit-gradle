@@ -3,7 +3,10 @@ package jp.androidgroup.nyartoolkit.markersystem;
 import android.graphics.Bitmap;
 import jp.androidgroup.nyartoolkit.utils.NyARAndBitmapRaster;
 import jp.androidgroup.nyartoolkit.utils.gl.NyARGLUtil;
+import jp.nyatla.nyartoolkit.core.NyARCode;
 import jp.nyatla.nyartoolkit.core.NyARException;
+import jp.nyatla.nyartoolkit.core.raster.rgb.NyARRgbRaster;
+import jp.nyatla.nyartoolkit.core.rasterdriver.INyARPerspectiveCopy;
 import jp.nyatla.nyartoolkit.markersystem.INyARMarkerSystemConfig;
 import jp.nyatla.nyartoolkit.markersystem.NyARMarkerSystem;
 import jp.nyatla.nyartoolkit.markersystem.NyARSensor;
@@ -21,7 +24,31 @@ public class NyARAndMarkerSystem extends NyARMarkerSystem
 		super.initInstance(i_config);
 		this._projection_mat=new float[16];
 	}
-
+	/**
+	 * {@link #addARMarker(INyARRgbRaster, int, int, double)}のラッパーです。Bitmapからマーカパターンを作ります。
+	 * 引数については、{@link #addARMarker(INyARRgbRaster, int, int, double)}を参照してください。
+	 * @param i_img
+	 * @param i_patt_resolution
+	 * @param i_patt_edge_percentage
+	 * @param i_marker_size
+	 * @return
+	 * @throws NyARException
+	 */
+	public int addARMarker(Bitmap i_img,int i_patt_resolution,int i_patt_edge_percentage,double i_marker_size) throws NyARException
+	{
+		int w=i_img.getWidth();
+		int h=i_img.getHeight();
+		NyARAndBitmapRaster bmr=new NyARAndBitmapRaster(i_img.getWidth(),i_img.getHeight());
+		bmr.wrapBuffer(i_img);
+		NyARCode c=new NyARCode(i_patt_resolution,i_patt_resolution);
+		//ラスタからマーカパターンを切り出す。
+		INyARPerspectiveCopy pc=(INyARPerspectiveCopy)bmr.createInterface(INyARPerspectiveCopy.class);
+		NyARRgbRaster tr=new NyARRgbRaster(i_patt_resolution,i_patt_resolution);
+		pc.copyPatt(0,0,w,0,w,h,0,h,i_patt_edge_percentage, i_patt_edge_percentage,4, tr);
+		//切り出したパターンをセット
+		c.setRaster(tr);
+		return super.addARMarker(c,i_patt_edge_percentage,i_marker_size);
+	}
 	/**
 	 * OpenGLスタイルのProjectionMatrixを返します。
 	 * @param i_gl

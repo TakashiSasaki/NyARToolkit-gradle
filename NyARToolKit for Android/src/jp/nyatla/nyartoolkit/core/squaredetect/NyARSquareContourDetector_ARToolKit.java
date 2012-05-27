@@ -83,6 +83,7 @@ public abstract class NyARSquareContourDetector_ARToolKit extends NyARSquareCont
 		this._coord=new NyARIntCoordinates(number_of_coord);
 		return;
 	}
+	
 	/**
 	 * この関数は、ラスタから矩形を検出して、自己コールバック関数{@link #onSquareDetect}で通知します。
 	 * 実装クラスでは、矩形検出処理をして、結果を通知する処理を実装してください。
@@ -90,7 +91,7 @@ public abstract class NyARSquareContourDetector_ARToolKit extends NyARSquareCont
 	 * 検出元のラスタ画像
 	 * @throws NyARException
 	 */
-	public final void detectMarker(NyARBinRaster i_raster) throws NyARException
+	public final void detectMarker(NyARBinRaster i_raster,NyARSquareContourDetector.CbHandler i_cb) throws NyARException
 	{
 		final NyARLabelingImage limage = this._limage;
 
@@ -152,15 +153,13 @@ public abstract class NyARSquareContourDetector_ARToolKit extends NyARSquareCont
 				continue;
 			}
 			//矩形を発見したことをコールバック関数で通知
-			this.onSquareDetect(coord,mkvertex);
+			i_cb.detectMarkerCallback(coord,mkvertex);
 
 			// 検出済の矩形の属したラベルを重なりチェックに追加する。
 			overlap.push(label_pt);
-			
 		}
 		return;
 	}
-
 }
 
 

@@ -31,7 +31,7 @@
 package jp.nyatla.nyartoolkit.core.pca2d;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix22;
+import jp.nyatla.nyartoolkit.core.types.matrix.*;
 
 /**
  * このクラスは、{@link NyARPca2d_MatrixPCA}を展開して高速化したものです。

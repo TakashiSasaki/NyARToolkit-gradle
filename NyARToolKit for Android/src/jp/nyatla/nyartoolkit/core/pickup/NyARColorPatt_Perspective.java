@@ -28,12 +28,9 @@ import jp.nyatla.nyartoolkit.core.NyARException;
 import jp.nyatla.nyartoolkit.core.match.NyARMatchPattDeviationColorData;
 import jp.nyatla.nyartoolkit.core.pixeldriver.INyARRgbPixelDriver;
 import jp.nyatla.nyartoolkit.core.pixeldriver.NyARRgbPixelDriverFactory;
-import jp.nyatla.nyartoolkit.core.raster.rgb.INyARRgbRaster;
-import jp.nyatla.nyartoolkit.core.rasterdriver.INyARPerspectiveCopy;
-import jp.nyatla.nyartoolkit.core.rasterdriver.NyARPerspectiveCopyFactory;
-import jp.nyatla.nyartoolkit.core.types.NyARBufferType;
-import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
-import jp.nyatla.nyartoolkit.core.types.NyARIntSize;
+import jp.nyatla.nyartoolkit.core.raster.rgb.*;
+import jp.nyatla.nyartoolkit.core.rasterdriver.*;
+import jp.nyatla.nyartoolkit.core.types.*;
 
 
 /**
@@ -194,7 +191,6 @@ public class NyARColorPatt_Perspective implements INyARColorPatt
 		return this._raster_driver.copyPatt(i_vertexs,this._edge.x,this._edge.y,this._sample_per_pixel, this);
 	}
 
-	@Override
 	public Object createInterface(Class<?> iIid) throws NyARException
 	{
 		if(iIid==INyARPerspectiveCopy.class){

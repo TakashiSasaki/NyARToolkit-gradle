@@ -27,8 +27,7 @@ package jp.nyatla.nyartoolkit.core.transmat.solver;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
 import jp.nyatla.nyartoolkit.core.param.NyARPerspectiveProjectionMatrix;
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint2d;
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint3d;
+import jp.nyatla.nyartoolkit.core.types.*;
 
 /**
  * このクラスは、ARToolKitと同じアルゴリズムを、異なる演算手順で処理して、並進ベクトルを求めます。

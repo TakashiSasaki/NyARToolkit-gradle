@@ -25,7 +25,7 @@
 package jp.nyatla.nyartoolkit.core.pixeldriver;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.raster.INyARRaster;
+import jp.nyatla.nyartoolkit.core.raster.*;
 import jp.nyatla.nyartoolkit.core.types.NyARIntSize;
 
 public interface INyARGsPixelDriver

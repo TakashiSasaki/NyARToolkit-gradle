@@ -29,12 +29,12 @@ import java.util.ArrayList;
 import jp.nyatla.nyartoolkit.core.NyARException;
 import jp.nyatla.nyartoolkit.core.raster.INyARGrayscaleRaster;
 import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
-import jp.nyatla.nyartoolkit.nyidmarker.NyIdMarkerParam;
-import jp.nyatla.nyartoolkit.nyidmarker.NyIdMarkerPattern;
-import jp.nyatla.nyartoolkit.nyidmarker.NyIdMarkerPickup;
-import jp.nyatla.nyartoolkit.nyidmarker.data.NyIdMarkerDataEncoder_RawBitId;
-import jp.nyatla.nyartoolkit.nyidmarker.data.NyIdMarkerData_RawBitId;
+import jp.nyatla.nyartoolkit.nyidmarker.*;
+import jp.nyatla.nyartoolkit.nyidmarker.data.*;
 
+/**
+ * このクラスは、NyIdの検出結果をマッピングします。
+ */
 public class NyIdList extends ArrayList<MarkerInfoNyId>
 {
 	private static final long serialVersionUID = -6446466460932931830L;

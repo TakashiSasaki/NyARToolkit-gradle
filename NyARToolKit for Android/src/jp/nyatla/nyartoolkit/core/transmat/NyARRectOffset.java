@@ -30,7 +30,7 @@
  */
 package jp.nyatla.nyartoolkit.core.transmat;
 
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint3d;
+import jp.nyatla.nyartoolkit.core.types.*;
 
 /**
  * このクラスは、３次元空間での矩形位置を格納します。

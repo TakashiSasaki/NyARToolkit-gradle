@@ -30,11 +30,9 @@
  */
 package jp.nyatla.nyartoolkit.core.param;
 
-import jp.nyatla.nyartoolkit.core.NyARMat;
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint2d;
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint3d;
-import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
-import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix44;
+import jp.nyatla.nyartoolkit.core.*;
+import jp.nyatla.nyartoolkit.core.types.matrix.*;
+import jp.nyatla.nyartoolkit.core.types.*;
 
 /**
  * このクラスは、ARToolKit形式の透視変換行列を格納します。

@@ -31,7 +31,7 @@
 package jp.nyatla.nyartoolkit.core.transmat.rotmatrix;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.param.NyARPerspectiveProjectionMatrix;
+import jp.nyatla.nyartoolkit.core.param.*;
 /**
  * 回転行列計算用の、3x3行列
  * 計算方法はARToolKitと同じだが、ARToolKitにある不要な行列から角度を逆算する

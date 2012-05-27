@@ -30,8 +30,7 @@
  */
 package jp.nyatla.nyartoolkit.core.squaredetect;
 
-import jp.nyatla.nyartoolkit.core.types.NyARIntCoordinates;
-import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
+import jp.nyatla.nyartoolkit.core.types.*;
 
 /**
  * このクラスは、輪郭線を四角形と仮定して、その頂点位置を計算します。

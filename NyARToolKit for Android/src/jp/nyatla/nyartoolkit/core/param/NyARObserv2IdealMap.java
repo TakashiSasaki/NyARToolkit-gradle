@@ -31,8 +31,7 @@
 package jp.nyatla.nyartoolkit.core.param;
 
 import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint2d;
-import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
-import jp.nyatla.nyartoolkit.core.types.NyARIntSize;
+import jp.nyatla.nyartoolkit.core.types.*;
 
 /**
  * このクラスは、観察座標系を理想座標系へ変換するテーブルです。

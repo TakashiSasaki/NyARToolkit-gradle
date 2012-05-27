@@ -31,17 +31,13 @@
 package jp.nyatla.nyartoolkit.core.transmat;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.param.NyARCameraDistortionFactor;
-import jp.nyatla.nyartoolkit.core.param.NyARParam;
-import jp.nyatla.nyartoolkit.core.param.NyARPerspectiveProjectionMatrix;
+import jp.nyatla.nyartoolkit.core.param.*;
 import jp.nyatla.nyartoolkit.core.squaredetect.NyARSquare;
-import jp.nyatla.nyartoolkit.core.transmat.optimize.NyARPartialDifferentiationOptimize;
-import jp.nyatla.nyartoolkit.core.transmat.rotmatrix.NyARRotMatrix;
-import jp.nyatla.nyartoolkit.core.transmat.solver.INyARTransportVectorSolver;
-import jp.nyatla.nyartoolkit.core.transmat.solver.NyARTransportVectorSolver;
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint2d;
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint3d;
-import jp.nyatla.nyartoolkit.core.types.matrix.NyARDoubleMatrix33;
+import jp.nyatla.nyartoolkit.core.transmat.solver.*;
+import jp.nyatla.nyartoolkit.core.transmat.optimize.*;
+import jp.nyatla.nyartoolkit.core.transmat.rotmatrix.*;
+import jp.nyatla.nyartoolkit.core.types.*;
+import jp.nyatla.nyartoolkit.core.types.matrix.*;
 
 /**
  * このクラスは、NyARToolkitの計算式で、二次元矩形から３次元位置姿勢を推定します。

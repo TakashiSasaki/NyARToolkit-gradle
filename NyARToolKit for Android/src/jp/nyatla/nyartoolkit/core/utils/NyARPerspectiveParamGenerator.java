@@ -25,9 +25,7 @@
 package jp.nyatla.nyartoolkit.core.utils;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint2d;
-import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
-import jp.nyatla.nyartoolkit.core.types.NyARIntSize;
+import jp.nyatla.nyartoolkit.core.types.*;
 
 /**
  * このクラスは、遠近法を用いたPerspectiveパラメータを計算する抽象クラスです。

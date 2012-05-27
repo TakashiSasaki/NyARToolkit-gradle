@@ -31,18 +31,13 @@
 package jp.nyatla.nyartoolkit.core.transmat;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.param.NyARCameraDistortionFactor;
-import jp.nyatla.nyartoolkit.core.param.NyARParam;
-import jp.nyatla.nyartoolkit.core.param.NyARPerspectiveProjectionMatrix;
+import jp.nyatla.nyartoolkit.core.param.*;
 import jp.nyatla.nyartoolkit.core.squaredetect.NyARSquare;
+import jp.nyatla.nyartoolkit.core.transmat.solver.*;
 import jp.nyatla.nyartoolkit.core.transmat.optimize.artoolkit.INyARRotMatrixOptimize;
 import jp.nyatla.nyartoolkit.core.transmat.optimize.artoolkit.NyARRotMatrixOptimize_O2;
-import jp.nyatla.nyartoolkit.core.transmat.rotmatrix.NyARRotMatrix_ARToolKit;
-import jp.nyatla.nyartoolkit.core.transmat.rotmatrix.NyARRotMatrix_ARToolKit_O2;
-import jp.nyatla.nyartoolkit.core.transmat.solver.INyARTransportVectorSolver;
-import jp.nyatla.nyartoolkit.core.transmat.solver.NyARTransportVectorSolver_ARToolKit;
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint2d;
-import jp.nyatla.nyartoolkit.core.types.NyARDoublePoint3d;
+import jp.nyatla.nyartoolkit.core.transmat.rotmatrix.*;
+import jp.nyatla.nyartoolkit.core.types.*;
 
 
 /**

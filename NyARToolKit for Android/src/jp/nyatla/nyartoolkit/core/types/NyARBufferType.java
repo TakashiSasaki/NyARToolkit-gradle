@@ -30,7 +30,6 @@
  */
 package jp.nyatla.nyartoolkit.core.types;
 
-import jp.nyatla.nyartoolkit.core.raster.INyARRaster;
 /**
  * このクラスは、バッファの形式を表す定数を定義します。
  * 定数は、主に{@link INyARRaster}で使用する画素形式として使います。
@@ -163,6 +162,9 @@ public class NyARBufferType
 	 * RGB形式。バッファは、JavaのBufferedImage型オブジェクト
 	 */
 	public static final int OBJECT_Java_BufferedImage= OBJECT_Java|0x01;
+	/**
+	 * AndroidのBitmap型オブジェクト
+	 */
 	public static final int OBJECT_And_Bitmap= OBJECT_Java|0x11;
 		
 	/**

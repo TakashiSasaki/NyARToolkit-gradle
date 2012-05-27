@@ -30,8 +30,7 @@
  */
 package jp.nyatla.nyartoolkit.core.match;
 
-import jp.nyatla.nyartoolkit.core.NyARCode;
-import jp.nyatla.nyartoolkit.core.NyARException;
+import jp.nyatla.nyartoolkit.core.*;
 
 /**
  * このクラスは、カラーで２パターンの一致度を計算します。
@@ -106,7 +105,7 @@ public class NyARMatchPatt_Color_WITHOUT_PCA implements INyARMatchPatt
 		//
 		final int[] linput = i_patt.getData();
 		int sum;
-		double max = Double.MIN_VALUE;
+		double max = 0;
 		int res = NyARMatchPattResult.DIRECTION_UNKNOWN;
 		final int for_mod=this._optimize_for_mod;
 		for (int j = 0; j < 4; j++) {
