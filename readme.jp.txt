@@ -1,7 +1,7 @@
 ======================================================================
-NyARToolKit for Android Sample - Markersystem - Simple Cube
- include NyARToolKit for Android SDK version 4.0.3
-  and NyARToolKit for Java 4.0.3
+NyARToolKit for Android SDK
+version 4.0.3
+
 ======================================================================
 
 NyARToolKit for Android SDK
@@ -105,3 +105,5 @@ Prof. Mark Billinghurst
 ----------------------------------------------------------------------
 4.0.0-1 (2012-Mar-11)
  * The first release
+4.0.3 2012-05-30
+ * optimized.
