@@ -98,7 +98,7 @@ public class AndGLBasicSprite implements AndGLView.IGLViewEventListener
 	protected void draw(int i_x, int i_y,int i_w,int i_h,int i_sx,int i_sy)
 	{
 		assert this._image!=null;
-		int[] st=this._gl_state_holder;
+//		int[] st=this._gl_state_holder;
 		GL10 gl=this._ref_gl;
 //		{	//<SaveGLstatus>
 //			gl.glGetIntegerv(GL10.GL_NORMALIZE,st,1);
@@ -109,6 +109,7 @@ public class AndGLBasicSprite implements AndGLView.IGLViewEventListener
 //			//gl.glGetIntegerv(GL10.GL_MATRIX_MODE,st,5); //なんでないんだよ！
 //		}
 		//set GL state
+		gl.glCullFace(GL10.GL_BACK);
 		gl.glActiveTexture(AndGLHelper.TEXTURE_CHANNEL);
     	gl.glTexParameterx(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S,GL10.GL_REPEAT);
     	gl.glTexParameterx(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T,GL10.GL_REPEAT);

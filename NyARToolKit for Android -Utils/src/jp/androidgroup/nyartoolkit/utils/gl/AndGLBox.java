@@ -53,7 +53,10 @@ public class AndGLBox  implements AndGLView.IGLViewEventListener
 		this._index=AndGLHelper.makeByteBuffer(indices);
 	}
 	/**
-	 * This function changes the matrix mode to MODEL_VIEW , and change some parameter.
+	 * BOXを描画します。
+	 * この関数は、次のパラメータを変更します。
+	 * GL_COLOR_ARRAY,GL_VERTEX_ARRAY,GL_TEXTURE_2D,GL_NORMALIZE,GL_LIGHTING
+	 * この関数は、MatrixModeを変更します。
 	 * @param i_x
 	 * @param i_y
 	 * @param i_z
