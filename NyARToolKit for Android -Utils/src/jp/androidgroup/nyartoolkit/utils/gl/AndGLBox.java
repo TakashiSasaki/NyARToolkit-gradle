@@ -73,7 +73,6 @@ public class AndGLBox  implements AndGLView.IGLViewEventListener
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 		gl.glPushMatrix();
 		gl.glTranslatef(i_x,i_y,i_z);
-		gl.glPushMatrix();
 		gl.glDrawElements(GL10.GL_TRIANGLES, 36, GL10.GL_UNSIGNED_BYTE,this._index);
 		gl.glPopMatrix();		
 //		gl.glEnable(GL10.GL_TEXTURE_2D);
