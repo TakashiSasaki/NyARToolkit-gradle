@@ -40,9 +40,9 @@ public class NyARVersion
 	/**メジャーバージョン*/
 	public final static int VERSION_MAJOR=4;
 	/**マイナバージョン*/
-	public final static int VERSION_MINOR=0;
+	public final static int VERSION_MINOR=1;
 	/**タグ*/
-	public final static int VERSION_TAG=3;
+	public final static int VERSION_TAG=1;
 	/**バージョン文字列*/
 	public final static String VERSION_STRING=MODULE_NAME+"/"+VERSION_MAJOR+"."+VERSION_MINOR+"."+VERSION_TAG;
 }

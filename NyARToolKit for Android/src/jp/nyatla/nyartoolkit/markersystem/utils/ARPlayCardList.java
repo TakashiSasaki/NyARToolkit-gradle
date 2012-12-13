@@ -29,22 +29,21 @@ import java.util.ArrayList;
 import jp.nyatla.nyartoolkit.core.NyARException;
 import jp.nyatla.nyartoolkit.core.raster.INyARGrayscaleRaster;
 import jp.nyatla.nyartoolkit.core.types.NyARIntPoint2d;
-import jp.nyatla.nyartoolkit.nyidmarker.*;
-import jp.nyatla.nyartoolkit.nyidmarker.data.*;
+import jp.nyatla.nyartoolkit.psarplaycard.PsARPlayCardPickup;
 
 /**
- * このクラスは、NyIdの検出結果をマッピングします。
+ * このクラスは、ARプレイカードの検出結果をマッピングします。
  */
-public class NyIdList extends ArrayList<NyIdList.Item>
+public class ARPlayCardList extends ArrayList<ARPlayCardList.Item>
 {
 	public static class Item extends TMarkerData
 	{
-		/** MK_NyIdの情報。 反応するidの開始レンジ*/
-		public final long nyid_range_s;
-		/** MK_NyIdの情報。 反応するidの終了レンジ*/
-		public final long nyid_range_e;
-		/** MK_NyIdの情報。 実際のid値*/
-		public long nyid;
+		/** Idの情報。 反応するidの開始レンジ*/
+		public final int nyid_range_s;
+		/** Idの情報。 反応するidの終了レンジ*/
+		public final int nyid_range_e;
+		/** Idの情報。 実際のid値*/
+		public long id;
 		public int dir;
 		/**
 		 * コンストラクタです。初期値から、Idマーカのインスタンスを生成します。
@@ -53,42 +52,37 @@ public class NyIdList extends ArrayList<NyIdList.Item>
 		 * @param i_patt_size
 		 * @throws NyARException
 		 */
-		public Item(long i_nyid_range_s,long i_nyid_range_e,double i_patt_size)
+		public Item(int i_id_range_s,int i_id_range_e,double i_patt_size)
 		{
 			super();
 			this.marker_offset.setSquare(i_patt_size);
-			this.nyid_range_s=i_nyid_range_s;
-			this.nyid_range_e=i_nyid_range_e;
+			this.nyid_range_s=i_id_range_s;
+			this.nyid_range_e=i_id_range_e;
 			return;
 		}		
 	}	
 	private static final long serialVersionUID = -6446466460932931830L;
 	/**輪郭推定器*/
-	private NyIdMarkerPickup _id_pickup;
-	private final NyIdMarkerPattern _id_patt=new NyIdMarkerPattern();
-	private final NyIdMarkerParam _id_param=new NyIdMarkerParam();
-	private final NyIdMarkerDataEncoder_RawBitId _id_encoder=new NyIdMarkerDataEncoder_RawBitId();
-	private final NyIdMarkerData_RawBitId _id_data=new NyIdMarkerData_RawBitId();
-	public NyIdList() throws NyARException
+	private PsARPlayCardPickup _pickup;
+	private final PsARPlayCardPickup.PsArIdParam _id_param=new PsARPlayCardPickup.PsArIdParam();
+	public ARPlayCardList() throws NyARException
 	{
-		this._id_pickup = new NyIdMarkerPickup();
+		this._pickup = new PsARPlayCardPickup();
 	}
 	public void prepare()
 	{
 		//nothing to do
 		//sqはtrackingでnull初期化済み
+		
 	}
 	public boolean update(INyARGrayscaleRaster i_raster,SquareStack.Item i_sq) throws NyARException
 	{
-		if(!this._id_pickup.pickFromRaster(i_raster.getGsPixelDriver(),i_sq.ob_vertex, this._id_patt, this._id_param))
+		if(!this._pickup.getARPlayCardId(i_raster.getGsPixelDriver(),i_sq.ob_vertex,this._id_param))
 		{
 			return false;
 		}
-		if(!this._id_encoder.encode(this._id_patt,this._id_data)){
-			return false;
-		}
 		//IDを検出
-		long s=this._id_data.marker_id;
+		int s=this._id_param.id;
 		for(int i=this.size()-1;i>=0;i--){
 			Item target=this.get(i);
 			if(target.nyid_range_s>s || s>target.nyid_range_e)
@@ -100,7 +94,7 @@ public class NyIdList extends ArrayList<NyIdList.Item>
 				continue;
 			}
 			//一致したよー。
-			target.nyid=s;
+			target.id=s;
 			target.dir=this._id_param.direction;
 			target.sq=i_sq;
 			return true;
@@ -114,7 +108,7 @@ public class NyIdList extends ArrayList<NyIdList.Item>
 			Item target=this.get(i);
 			if(target.sq==null){
 				continue;
-			}
+			}			
 			if(target.lost_count>0){
 				//参照はそのままで、dirだけ調整する。
 				target.lost_count=0;

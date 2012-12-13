@@ -25,7 +25,7 @@
 package jp.nyatla.nyartoolkit.rpf.reality.nyartk;
 
 import jp.nyatla.nyartoolkit.core.NyARException;
-import jp.nyatla.nyartoolkit.core.param.NyARCameraDistortionFactor;
+import jp.nyatla.nyartoolkit.core.param.INyARCameraDistortionFactor;
 import jp.nyatla.nyartoolkit.core.param.NyARFrustum;
 import jp.nyatla.nyartoolkit.core.param.NyARParam;
 import jp.nyatla.nyartoolkit.core.param.NyARPerspectiveProjectionMatrix;
@@ -178,7 +178,7 @@ public class NyARReality
 	 * {@link #NyARReality(NyARParam i_param,double i_near,double i_far,int i_max_known_target,int i_max_unknown_target)}を参照
 	 * @throws NyARException
 	 */
-	public NyARReality(NyARIntSize i_screen,double i_near,double i_far,NyARPerspectiveProjectionMatrix i_prjmat,NyARCameraDistortionFactor i_dist_factor,int i_max_known_target,int i_max_unknown_target) throws NyARException
+	public NyARReality(NyARIntSize i_screen,double i_near,double i_far,NyARPerspectiveProjectionMatrix i_prjmat,INyARCameraDistortionFactor i_dist_factor,int i_max_known_target,int i_max_unknown_target) throws NyARException
 	{
 		this.MAX_LIMIT_KNOWN=i_max_known_target;
 		this.MAX_LIMIT_UNKNOWN=i_max_unknown_target;
@@ -190,7 +190,7 @@ public class NyARReality
 	 * @param i_prjmat
 	 * @throws NyARException
 	 */
-	protected void initInstance(NyARIntSize i_screen,double i_near,double i_far,NyARPerspectiveProjectionMatrix i_prjmat,NyARCameraDistortionFactor i_dist_factor) throws NyARException
+	protected void initInstance(NyARIntSize i_screen,double i_near,double i_far,NyARPerspectiveProjectionMatrix i_prjmat,INyARCameraDistortionFactor i_dist_factor) throws NyARException
 	{
 		int number_of_reality_target=this.MAX_LIMIT_KNOWN+this.MAX_LIMIT_UNKNOWN;
 		//演算インスタンス
@@ -294,7 +294,7 @@ public class NyARReality
 					setSquare(((NyARRectTargetStatus)(tar._ref_tracktarget._ref_status)).vertex,tar._screen_square);
 					//3d座標計算
 //					this._transmat.transMat(tar._screen_square,tar._offset,tar._transform_matrix);
-					this._transmat.transMatContinue(tar._screen_square,tar._offset,tar._transform_matrix,tar._transform_matrix);
+					this._transmat.transMatContinue(tar._screen_square,tar._offset,tar._transform_matrix,tar._result_param.last_error,tar._transform_matrix,tar._result_param);
 					continue;
 				case NyARRealityTarget.RT_UNKNOWN:
 					continue;
@@ -466,7 +466,9 @@ public class NyARReality
 			i_item._screen_square.line[i].makeLinearWithNormalize(vx[i],vx[(i+1)%4]);
 		}
 		//3d座標計算
-		this._transmat.transMat(i_item._screen_square,i_item._offset,i_item._transform_matrix);
+		if(!this._transmat.transMat(i_item._screen_square,i_item._offset,i_item._transform_matrix,i_item._result_param)){
+			return false;
+		}
 		
 		//数の調整
 		this._number_of_unknown--;
