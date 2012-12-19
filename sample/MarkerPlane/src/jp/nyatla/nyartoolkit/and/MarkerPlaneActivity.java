@@ -2,7 +2,6 @@ package jp.nyatla.nyartoolkit.and;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import jp.androidgroup.nyartoolkit.R;
 import jp.androidgroup.nyartoolkit.markersystem.NyARAndMarkerSystem;
 import jp.androidgroup.nyartoolkit.markersystem.NyARAndSensor;
 import jp.androidgroup.nyartoolkit.sketch.AndSketch;
