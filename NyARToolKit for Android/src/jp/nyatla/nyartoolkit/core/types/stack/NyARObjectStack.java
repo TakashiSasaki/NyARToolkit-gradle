@@ -1,20 +1,21 @@
 /* 
- * PROJECT: NyARToolkit
+ * PROJECT: NyARToolkit(Extension)
  * --------------------------------------------------------------------------------
- * The NyARToolkit is Java edition ARToolKit class library.
- * Copyright (C)2008-2009 Ryo Iizuka
  *
+ * The NyARToolkit is Java edition ARToolKit class library.
+ * Copyright (C)2008-2012 Ryo Iizuka
+ * 
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
+ * it under the terms of the GNU Lesser General Public License as publishe
+ * by the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  * 
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
+ * GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * For further information please contact.
@@ -41,16 +42,7 @@ import jp.nyatla.nyartoolkit.core.NyARException;
  */
 public class NyARObjectStack<T> extends NyARPointerStack<T>
 {
-	/**
-	 * コンストラクタです。
-	 * クラスの実体化を禁止するために宣言しています。
-	 * 継承クラスから呼び出してください。
-	 * @throws NyARException
-	 */
-	protected NyARObjectStack() throws NyARException
-	{
-		return;
-	}
+
 	/**
 	 * この関数は、インスタンスを初期化します。
 	 * 継承クラスのコンストラクタから呼び出します。
@@ -62,10 +54,10 @@ public class NyARObjectStack<T> extends NyARPointerStack<T>
 	 * 配列型を示すクラスタイプ
 	 * @throws NyARException
 	 */
-	protected void initInstance(int i_length,Class<T> i_element_type) throws NyARException
+	protected NyARObjectStack(int i_length,Class<T> i_element_type)
 	{
 		//領域確保
-		super.initInstance(i_length,i_element_type);
+		super(i_length,i_element_type);
 		for (int i =0; i < i_length; i++){
 			this._items[i] =createElement();
 		}
@@ -84,10 +76,10 @@ public class NyARObjectStack<T> extends NyARPointerStack<T>
 	 * 配列要素を生成するときに渡すパラメータ
 	 * @throws NyARException
 	 */
-	protected void initInstance(int i_length,Class<T> i_element_type,Object i_param) throws NyARException
+	protected NyARObjectStack(int i_length,Class<T> i_element_type,Object i_param) throws NyARException
 	{
 		//領域確保
-		super.initInstance(i_length,i_element_type);
+		super(i_length,i_element_type);
 		for (int i =0; i < i_length; i++){
 			this._items[i] =createElement(i_param);
 		}
@@ -99,11 +91,10 @@ public class NyARObjectStack<T> extends NyARPointerStack<T>
 	 * 継承クラスでオーバライドして、要素オブジェクトを１個生成して返す処理を実装してください。
 	 * @return
 	 * 新しいオブジェクトを返してください。
-	 * @throws NyARException
 	 */
-	protected T createElement() throws NyARException
+	protected T createElement()
 	{
-		throw new NyARException();
+		throw new UnsupportedOperationException();
 	}
 	/**
 	 * この関数は、配列要素のオブジェクトを(引数付きで)１個作ります。
@@ -113,9 +104,9 @@ public class NyARObjectStack<T> extends NyARPointerStack<T>
 	 * 新しいオブジェクトを返してください。
 	 * @throws NyARException
 	 */
-	protected T createElement(Object i_param) throws NyARException
+	protected T createElement(Object i_param)
 	{
-		throw new NyARException();
+		throw new UnsupportedOperationException();
 	}
 	
 	/**
@@ -124,7 +115,6 @@ public class NyARObjectStack<T> extends NyARPointerStack<T>
 	 * @return
 	 * 成功すると、新しい配列要素。
 	 * 失敗するとnull
-	 * @throws NyARException
 	 */
 	public final T prePush()
 	{
@@ -142,7 +132,7 @@ public class NyARObjectStack<T> extends NyARPointerStack<T>
 	 */
 	public T push(T i_object)
 	{
-		return null;
+		throw new UnsupportedOperationException();
 	}
 	/**
 	 * この関数は、配列の有効長を設定します。

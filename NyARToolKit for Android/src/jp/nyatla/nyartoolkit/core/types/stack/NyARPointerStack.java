@@ -1,20 +1,21 @@
 /* 
  * PROJECT: NyARToolkit(Extension)
  * --------------------------------------------------------------------------------
- * The NyARToolkit is Java edition ARToolKit class library.
- * Copyright (C)2008-2009 Ryo Iizuka
  *
+ * The NyARToolkit is Java edition ARToolKit class library.
+ * Copyright (C)2008-2012 Ryo Iizuka
+ * 
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
+ * it under the terms of the GNU Lesser General Public License as publishe
+ * by the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  * 
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
+ * GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * For further information please contact.
@@ -37,23 +38,12 @@ import jp.nyatla.nyartoolkit.core.NyARException;
 public class NyARPointerStack<T>
 {
 	/** オブジェクトの参照値を格納するバッファ*/
-	protected T[] _items;
+	protected final T[] _items;
 	/** 配列の有効な長さ。({@link #_items}の配列長とは異なることに注意してください。*/
 	protected int _length;
 	
-	/**
-	 * コンストラクタです。
-	 * クラスの実体化を禁止するために宣言しています。
-	 * 継承クラスから呼び出してください。
-	 * @throws NyARException
-	 */
-	protected NyARPointerStack() throws NyARException
-	{
-	}
 
 	/**
-	 * この関数は、インスタンスを初期化します。
-	 * この関数は、このクラスを継承したクラスのコンストラクタから呼び出します。
 	 * @param i_length
 	 * 配列の最大長さ
 	 * @param i_element_type
@@ -61,7 +51,7 @@ public class NyARPointerStack<T>
 	 * @throws NyARException
 	 */
 	@SuppressWarnings("unchecked")
-	protected void initInstance(int i_length,Class<T> i_element_type) throws NyARException
+	protected NyARPointerStack(int i_length,Class<T> i_element_type)
 	{
 		//領域確保
 		this._items = (T[])Array.newInstance(i_element_type, i_length);

@@ -1,6 +1,6 @@
 ======================================================================
 NyARToolKit for Android SDK
-version 4.1.1
+version 4.1.2
 
 ======================================================================
 
@@ -47,28 +47,20 @@ contributors
 ----------------------------------------------------------------------
  NyARToolKit for Android License
 ----------------------------------------------------------------------
-NyARToolKit for Androidは「GPL」と「Commercialライセンス」の
-デュアルライセンス方式を採用しています。
-また、NyARToolKit for Androidは関連するいくつかのライブラリも含めて配布しています。
-含まれるライブラリは、それぞれのライセンスが適応されます。
+NyARToolkitは、商用ライセンスとLGPLv3のデュアルライセンスを採用して
+います。
 
-[GPL License]
-ライセンスの内容は、COPYING.txtをご確認ください
-また、GPL(the GNU General Public License v3)を選択した場合、
-商用・非商用を問わず、無料で使用可能です。
-ただし、GPLで課されている条件に従い、GPLを適応していることの告知、
-並びにユーザーの要求に応じてアプリケーションのソースコードの提供、
-これらを含む義務を履行してください。
+LGPLv3を承諾された場合には、商用、非商用にかかわらず、無償でご利用にな
+れます。LGPLv3を承諾できない場合には、商用ライセンスの購入をご検討くだ
+さい。
 
-[Commercial License]
-NyARToolKit for AndroidはGPLを受け入れることができないユーザーのために、
-Commercial Licenseが有償でARToolworks Inc.より提供されています。
-ARToolworks Inc.より許諾を受けることにより、GPLの制約から解放されます。
-条件やライセンス費用については、ARToolworks Inc.に問合せてください。
 
-ARToolworks Inc. http://www.artoolworks.com/
-mailto : sales@artoolworks.com
+ * LGPLv3
+   LGPLv3については、COPYING.txtをお読みください。
 
+ * 商用ライセンス
+   商用ライセンスについては、ARToolWorks社に管理を委託しております。
+   http://www.artoolworks.com/Home.html
 ----------------------------------------------------------------------
  External library
 ----------------------------------------------------------------------
