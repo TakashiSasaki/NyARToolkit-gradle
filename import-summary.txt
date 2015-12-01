@@ -7,6 +7,9 @@ The following files were *not* copied into the new Gradle project; you
 should evaluate whether these are still needed in your project and if
 so manually move them:
 
+From NyARToolKit for Android:
+* proguard-project.txt
+From NyARToolKit for Android - AndUtils:
 * proguard-project.txt
 
 Moved Files:
@@ -14,10 +17,16 @@ Moved Files:
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-* AndroidManifest.xml => NyARToolKit for Android\src\main\AndroidManifest.xml
-* lint.xml => NyARToolKit for Android\lint.xml
-* res\ => NyARToolKit for Android\src\main\res\
-* src\ => NyARToolKit for Android\src\main\java\
+In NyARToolKit for Android:
+* AndroidManifest.xml => nyARToolKitforAndroid\src\main\AndroidManifest.xml
+* lint.xml => nyARToolKitforAndroid\lint.xml
+* res\ => nyARToolKitforAndroid\src\main\res\
+* src\ => nyARToolKitforAndroid\src\main\java\
+In NyARToolKit for Android - AndUtils:
+* AndroidManifest.xml => NyARToolKit for Android -Utils\src\main\AndroidManifest.xml
+* lint.xml => NyARToolKit for Android -Utils\lint.xml
+* res\ => NyARToolKit for Android -Utils\src\main\res\
+* src\ => NyARToolKit for Android -Utils\src\main\java\
 
 Next Steps:
 -----------
