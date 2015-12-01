@@ -9,5 +9,6 @@
 /NyARToolKit\ for\ Android/build
 /NyARToolKit\ for\ Android\ -Utils/build
 ImagePickup/build
+MarkerPlane/build
 *.swp
 
