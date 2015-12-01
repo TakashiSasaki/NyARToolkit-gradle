@@ -2,11 +2,11 @@ ECLIPSE ANDROID PROJECT IMPORT SUMMARY
 ======================================
 
  * Project Sample -
-   MarkerPlane:C:\Users\sasaki\AndroidStudioProjects\NyARTK4.nyatla\sample\Marke
-   Plane\.classpath:
+   SimpleLite:C:\Users\sasaki\AndroidStudioProjects\NyARTK4.nyatla\sample\Simple
+   ite\.classpath:
    Could not resolve source path /NyARToolKit for Android - AndUtils in project
-   Sample - MarkerPlane: ignored. The project may not compile if the given
-   source path provided source code.
+   Sample - SimpleLite: ignored. The project may not compile if the given source
+   path provided source code.
 
 
 Manifest Merging:
@@ -28,7 +28,7 @@ From NyARToolKit for Android:
 * proguard-project.txt
 From NyARToolKit for Android - AndUtils:
 * proguard-project.txt
-From Sample - MarkerPlane:
+From Sample - SimpleLite:
 * proguard-project.txt
 
 Moved Files:
@@ -46,12 +46,12 @@ In NyARToolKit for Android - AndUtils:
 * lint.xml => nyARToolKitforAndroidAndUtils\lint.xml
 * res\ => nyARToolKitforAndroidAndUtils\src\main\res\
 * src\ => nyARToolKitforAndroidAndUtils\src\main\java\
-In Sample - MarkerPlane:
-* AndroidManifest.xml => MarkerPlane\src\main\AndroidManifest.xml
-* assets\ => MarkerPlane\src\main\assets\
-* lint.xml => MarkerPlane\lint.xml
-* res\ => MarkerPlane\src\main\res\
-* src\ => MarkerPlane\src\main\java\
+In Sample - SimpleLite:
+* AndroidManifest.xml => SimpleLite\src\main\AndroidManifest.xml
+* assets\ => SimpleLite\src\main\assets\
+* lint.xml => SimpleLite\lint.xml
+* res\ => SimpleLite\src\main\res\
+* src\ => SimpleLite\src\main\java\
 
 Next Steps:
 -----------

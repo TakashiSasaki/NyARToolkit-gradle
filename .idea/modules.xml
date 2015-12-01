@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/NyARTK4-gradle.iml" filepath="$PROJECT_DIR$/NyARTK4-gradle.iml" />
       <module fileurl="file://$PROJECT_DIR$/NyARToolKit for Android/NyARToolKit for Android.iml" filepath="$PROJECT_DIR$/NyARToolKit for Android/NyARToolKit for Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/NyARToolKit for Android -Utils/NyARToolKit for Android -Utils.iml" filepath="$PROJECT_DIR$/NyARToolKit for Android -Utils/NyARToolKit for Android -Utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SimpleLite/SimpleLite.iml" filepath="$PROJECT_DIR$/SimpleLite/SimpleLite.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
