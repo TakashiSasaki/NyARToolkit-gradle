@@ -1,4 +1,3 @@
-include ':app'
 include ':NyARToolKit for Android'
 include ':NyARToolKit for Android -Utils'
 include ':ImagePickup'
