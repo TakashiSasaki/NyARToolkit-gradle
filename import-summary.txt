@@ -1,6 +1,23 @@
 ECLIPSE ANDROID PROJECT IMPORT SUMMARY
 ======================================
 
+ * Project Sample -
+   ImagePickup:C:\Users\sasaki\AndroidStudioProjects\NyARTK4.nyatla\sample\Image
+   ickup\.classpath:
+   Could not resolve source path /NyARToolKit for Android - AndUtils in project
+   Sample - ImagePickup: ignored. The project may not compile if the given
+   source path provided source code.
+
+
+Manifest Merging:
+-----------------
+Your project uses libraries that provide manifests, and your Eclipse
+project did not explicitly turn on manifest merging. In Android Gradle
+projects, manifests are always merged (meaning that contents from your
+libraries' manifests will be merged into the app manifest. If you had
+manually copied contents from library manifests into your app manifest
+you may need to remove these for the app to build correctly.
+
 Ignored Files:
 --------------
 The following files were *not* copied into the new Gradle project; you
@@ -10,6 +27,8 @@ so manually move them:
 From NyARToolKit for Android:
 * proguard-project.txt
 From NyARToolKit for Android - AndUtils:
+* proguard-project.txt
+From Sample - ImagePickup:
 * proguard-project.txt
 
 Moved Files:
@@ -23,10 +42,16 @@ In NyARToolKit for Android:
 * res\ => nyARToolKitforAndroid\src\main\res\
 * src\ => nyARToolKitforAndroid\src\main\java\
 In NyARToolKit for Android - AndUtils:
-* AndroidManifest.xml => NyARToolKit for Android -Utils\src\main\AndroidManifest.xml
-* lint.xml => NyARToolKit for Android -Utils\lint.xml
-* res\ => NyARToolKit for Android -Utils\src\main\res\
-* src\ => NyARToolKit for Android -Utils\src\main\java\
+* AndroidManifest.xml => nyARToolKitforAndroidAndUtils\src\main\AndroidManifest.xml
+* lint.xml => nyARToolKitforAndroidAndUtils\lint.xml
+* res\ => nyARToolKitforAndroidAndUtils\src\main\res\
+* src\ => nyARToolKitforAndroidAndUtils\src\main\java\
+In Sample - ImagePickup:
+* AndroidManifest.xml => ImagePickup\src\main\AndroidManifest.xml
+* assets\ => ImagePickup\src\main\assets\
+* lint.xml => ImagePickup\lint.xml
+* res\ => ImagePickup\src\main\res\
+* src\ => ImagePickup\src\main\java\
 
 Next Steps:
 -----------
