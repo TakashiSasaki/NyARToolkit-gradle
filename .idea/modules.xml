@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NyARTK4-gradle.iml" filepath="$PROJECT_DIR$/NyARTK4-gradle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NyARToolKit for Android/NyARToolKit for Android.iml" filepath="$PROJECT_DIR$/NyARToolKit for Android/NyARToolKit for Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
