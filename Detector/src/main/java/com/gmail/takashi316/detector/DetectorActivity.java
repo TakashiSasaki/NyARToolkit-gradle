@@ -1,5 +1,6 @@
 package com.gmail.takashi316.detector;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,8 +11,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 
 public class DetectorActivity extends AppCompatActivity {
+
+    private Button buttonStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,15 @@ public class DetectorActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });
+
+        this.buttonStart = (Button) this.findViewById(R.id.buttonStart);
+        this.buttonStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetectorActivity.this.getApplicationContext(), PreviewActivity.class);
+                DetectorActivity.this.startActivity(intent);
             }
         });
     }
