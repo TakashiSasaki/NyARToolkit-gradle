@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ImagePickup/ImagePickup.iml" filepath="$PROJECT_DIR$/ImagePickup/ImagePickup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MarkerPlane/MarkerPlane.iml" filepath="$PROJECT_DIR$/MarkerPlane/MarkerPlane.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NyARTK4-gradle.iml" filepath="$PROJECT_DIR$/NyARTK4-gradle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NyARToolKit for Android/NyARToolKit for Android.iml" filepath="$PROJECT_DIR$/NyARToolKit for Android/NyARToolKit for Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NyARToolKit for Android -Utils/NyARToolKit for Android -Utils.iml" filepath="$PROJECT_DIR$/NyARToolKit for Android -Utils/NyARToolKit for Android -Utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SimpleLite/SimpleLite.iml" filepath="$PROJECT_DIR$/SimpleLite/SimpleLite.iml" />
+    </modules>
+  </component>
+</project>
