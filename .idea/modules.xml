@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Detector/Detector.iml" filepath="$PROJECT_DIR$/Detector/Detector.iml" />
       <module fileurl="file://$PROJECT_DIR$/ImagePickup/ImagePickup.iml" filepath="$PROJECT_DIR$/ImagePickup/ImagePickup.iml" />
       <module fileurl="file://$PROJECT_DIR$/MarkerPlane/MarkerPlane.iml" filepath="$PROJECT_DIR$/MarkerPlane/MarkerPlane.iml" />
       <module fileurl="file://$PROJECT_DIR$/NyARTK4-gradle.iml" filepath="$PROJECT_DIR$/NyARTK4-gradle.iml" />

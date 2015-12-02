@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Detector" />
             <option value="$PROJECT_DIR$/ImagePickup" />
             <option value="$PROJECT_DIR$/MarkerPlane" />
             <option value="$PROJECT_DIR$/NyARToolKit for Android" />
