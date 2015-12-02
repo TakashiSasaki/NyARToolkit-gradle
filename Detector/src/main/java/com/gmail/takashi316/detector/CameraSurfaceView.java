@@ -14,7 +14,7 @@ public class CameraSurfaceView extends SurfaceView {
     public CameraSurfaceView(Context context, Camera camera) {
         super(context);
         SurfaceHolderCallback surface_holder_callback = new SurfaceHolderCallback(camera);
-        getHolder().addCallback(surface_holder_callback);
+        this.getHolder().addCallback(surface_holder_callback);
     }
 
     @Override

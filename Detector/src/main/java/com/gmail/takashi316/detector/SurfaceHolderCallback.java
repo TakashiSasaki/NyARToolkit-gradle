@@ -20,6 +20,7 @@ public class SurfaceHolderCallback implements SurfaceHolder.Callback {
     public void surfaceCreated(SurfaceHolder holder) {
         try {
             this.camera.setPreviewDisplay(holder);
+            this.camera.startPreview();
         } catch (IOException e) {
             e.printStackTrace();
         }
