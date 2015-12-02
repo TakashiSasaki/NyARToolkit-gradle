@@ -20,6 +20,7 @@ public class PreviewActivity extends Activity {
         setContentView(R.layout.activity_preview);
         Camera camera = Camera.open();
         CameraSurfaceView camera_surface_view = new CameraSurfaceView(this, camera);
+        camera_surface_view.setPadding(10, 10, 10, 10);
         FrameLayout frame_layout = (FrameLayout) findViewById(R.id.frameLayout);
         frame_layout.addView(camera_surface_view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     }
