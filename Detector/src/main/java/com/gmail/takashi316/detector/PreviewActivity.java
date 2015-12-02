@@ -1,9 +1,9 @@
 package com.gmail.takashi316.detector;
 
-import jp.androidgroup.nyartoolkit.sketch.AndSketch;
+import android.app.Activity;
 
 /**
  * Created by sasaki on 2015/12/02.
  */
-public class PreviewActivity extends AndSketch {
+public class PreviewActivity extends Activity {
 }
