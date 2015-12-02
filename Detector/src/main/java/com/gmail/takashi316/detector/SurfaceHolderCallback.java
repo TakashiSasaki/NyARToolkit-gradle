@@ -23,6 +23,7 @@ public class SurfaceHolderCallback implements SurfaceHolder.Callback {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     }
 
     @Override
