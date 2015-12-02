@@ -2,6 +2,8 @@ package com.gmail.takashi316.detector;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,10 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class DetectorActivity extends AppCompatActivity {
 
     private Button buttonStart;
+    private EditText editTextVersionCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,15 @@ public class DetectorActivity extends AppCompatActivity {
                 DetectorActivity.this.startActivity(intent);
             }
         });
+
+        this.editTextVersionCode = (EditText) findViewById(R.id.editTextVersionName);
+        try {
+            PackageInfo package_info = getPackageManager().getPackageInfo(getPackageName(), 0);
+            editTextVersionCode.setText(package_info.versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            editTextVersionCode.setText("unknown");
+            e.printStackTrace();
+        }
     }
 
     @Override

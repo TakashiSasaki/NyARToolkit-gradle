@@ -13,6 +13,7 @@
     tools:showIn="@layout/activity_detector">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
@@ -21,5 +22,34 @@
         android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
         android:text="Start Camera and Detection" />
+
+
+    <TextView
+        android:id="@+id/textViewVersionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/buttonStart"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="23dp"
+        android:text="versionCode" />
+
+    <EditText
+        android:id="@+id/editTextVersionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textViewVersionName"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_toEndOf="@+id/textViewVersionName"
+        android:layout_toRightOf="@+id/textViewVersionName"
+        android:editable="false"
+        android:text="editTextVersionCode"></EditText>
+
+
 </RelativeLayout>
