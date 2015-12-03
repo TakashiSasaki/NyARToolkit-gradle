@@ -51,5 +51,33 @@
         android:editable="false"
         android:text="editTextVersionCode"></EditText>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Portrait"
+        android:id="@+id/buttonPortrait"
+        android:layout_below="@+id/textViewVersionName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Landscape"
+        android:id="@+id/buttonLandscape"
+        android:layout_alignBottom="@+id/buttonPortrait"
+        android:layout_toRightOf="@+id/buttonPortrait"
+        android:layout_toEndOf="@+id/buttonPortrait" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sensor"
+        android:id="@+id/buttonSensor"
+        android:layout_alignTop="@+id/buttonLandscape"
+        android:layout_toRightOf="@+id/buttonLandscape"
+        android:layout_toEndOf="@+id/buttonLandscape" />
+
 
 </RelativeLayout>

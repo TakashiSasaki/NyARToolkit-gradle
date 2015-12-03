@@ -1,7 +1,6 @@
 package com.gmail.takashi316.detector;
 
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ public class PreviewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_preview);
         Camera camera = Camera.open();
         CameraSurfaceView camera_surface_view = new CameraSurfaceView(this, camera);

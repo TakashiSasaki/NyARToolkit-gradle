@@ -13,19 +13,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 
 public class DetectorActivity extends AppCompatActivity {
 
-    private Button buttonStart;
     private EditText editTextVersionCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         this.setContentView(R.layout.activity_detector);
         Toolbar toolbar = (Toolbar) this.findViewById(R.id.toolbar);
@@ -40,8 +37,7 @@ public class DetectorActivity extends AppCompatActivity {
             }
         });
 
-        this.buttonStart = (Button) this.findViewById(R.id.buttonStart);
-        this.buttonStart.setOnClickListener(new View.OnClickListener() {
+        this.findViewById(R.id.buttonStart).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DetectorActivity.this.getApplicationContext(), PreviewActivity.class);
@@ -57,6 +53,27 @@ public class DetectorActivity extends AppCompatActivity {
             editTextVersionCode.setText("unknown");
             e.printStackTrace();
         }
+
+        findViewById(R.id.buttonPortrait).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            }
+        });
+
+        findViewById(R.id.buttonLandscape).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            }
+        });
+
+        findViewById(R.id.buttonSensor).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+            }
+        });
     }
 
     @Override
