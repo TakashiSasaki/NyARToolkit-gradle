@@ -17,7 +17,7 @@ public class MarkerSystemCallbackActivity extends PreviewActivity {
     protected void onStart() {
         super.onStart();
         try {
-            this.markerSystemCallback = new MarkerSystemCallback(this.surfaceHolderCallback.getPreviewWidth(), this.surfaceHolderCallback.getPreviewHeight(), getResources().getAssets());
+            this.markerSystemCallback = new MarkerSystemCallback(this.surfaceHolderCallback.getPreviewWidth(), this.surfaceHolderCallback.getPreviewHeight(), getResources().getAssets(), null);
 
             //TODO: move camera settings to appropreate class
             Camera.Parameters cparam = this.camera.getParameters();
