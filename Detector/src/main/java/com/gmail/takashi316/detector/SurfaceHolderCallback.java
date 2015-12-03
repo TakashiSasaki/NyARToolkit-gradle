@@ -2,8 +2,10 @@ package com.gmail.takashi316.detector;
 
 import android.hardware.Camera;
 import android.view.SurfaceHolder;
+import android.widget.FrameLayout;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by sasaki on 2015/12/02.
@@ -11,12 +13,28 @@ import java.io.IOException;
 public class SurfaceHolderCallback implements SurfaceHolder.Callback {
 
     private Camera camera;
+    private int maxHeight = 0, maxWidth = 0;
 
     public SurfaceHolderCallback() {
     }
 
     public void setCamera(Camera camera) {
         this.camera = camera;
+    }
+
+    private void getMaxPreviewSize() {
+        List<Camera.Size> sizes = this.camera.getParameters().getSupportedPreviewSizes();
+        for (Camera.Size size : sizes) {
+            if (maxHeight < size.height) {
+                maxHeight = size.height;
+                maxWidth = size.width;
+            }
+        }
+    }
+
+    FrameLayout.LayoutParams getLayoutParams() {
+        this.getMaxPreviewSize();
+        return new FrameLayout.LayoutParams(maxWidth, maxHeight);
     }
 
     @Override

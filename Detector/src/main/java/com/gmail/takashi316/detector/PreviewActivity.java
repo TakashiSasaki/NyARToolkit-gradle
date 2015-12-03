@@ -31,6 +31,7 @@ public class PreviewActivity extends Activity {
         this.surfaceHolderCallback = new SurfaceHolderCallback();
         this.surfaceHolderCallback.setCamera(camera);
         this.surfaceView.getHolder().addCallback(this.surfaceHolderCallback);
+        this.surfaceView.setLayoutParams(this.surfaceHolderCallback.getLayoutParams());
     }
 
     @Override
