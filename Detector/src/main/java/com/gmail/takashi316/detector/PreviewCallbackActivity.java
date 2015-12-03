@@ -19,11 +19,11 @@ public class PreviewCallbackActivity extends PreviewActivity {
     protected void onStart() {
         super.onStart();
         try {
-            this.cameraPreviewCallback = new CameraPreviewCallback(surfaceHolderCallback.getPreviewWidth(), surfaceHolderCallback.getPreviewHeight());
-            camera.addCallbackBuffer(this.cameraPreviewCallback.getCurrentBuffer());
-            camera.setPreviewCallbackWithBuffer(this.cameraPreviewCallback);
+            this.cameraPreviewCallback = new CameraPreviewCallback(this.surfaceHolderCallback.getPreviewWidth(), this.surfaceHolderCallback.getPreviewHeight());
+            this.camera.addCallbackBuffer(this.cameraPreviewCallback.getCurrentBuffer());
+            this.camera.setPreviewCallbackWithBuffer(this.cameraPreviewCallback);
         } catch (NyARException e) {
             e.printStackTrace();
         }
     }
-}
+}//PreviewCallbackActivity

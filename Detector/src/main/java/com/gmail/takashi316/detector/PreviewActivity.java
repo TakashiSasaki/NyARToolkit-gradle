@@ -23,26 +23,26 @@ public class PreviewActivity extends Activity {
         super.onCreate(savedInstanceState);
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        setContentView(R.layout.activity_preview);
-        this.surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
+        this.setContentView(R.layout.activity_preview);
+        this.surfaceView = (SurfaceView) this.findViewById(R.id.surfaceView);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        camera = Camera.open();
+        this.camera = Camera.open();
         this.surfaceHolderCallback = new SurfaceHolderCallback(this);
-        this.surfaceHolderCallback.setCamera(camera);
+        this.surfaceHolderCallback.setCamera(this.camera);
         this.surfaceView.getHolder().addCallback(this.surfaceHolderCallback);
-        this.surfaceView.setLayoutParams(new FrameLayout.LayoutParams(surfaceHolderCallback.getPreviewWidth(), surfaceHolderCallback.getPreviewHeight()));
+        this.surfaceView.setLayoutParams(new FrameLayout.LayoutParams(this.surfaceHolderCallback.getPreviewWidth(), this.surfaceHolderCallback.getPreviewHeight()));
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         this.surfaceHolderCallback.setCamera(null);
-        camera.stopPreview();
-        camera.release();
-        camera = null;
+        this.camera.stopPreview();
+        this.camera.release();
+        this.camera = null;
     }
 }
