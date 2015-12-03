@@ -48,7 +48,7 @@ public class MarkerSystemCallback extends CameraPreviewCallback {
                     glMarkerMatrix2 = nyARAndMarkerSystem.getGlMarkerMatrix(markerId2);
                     markerExists = true;
                 }
-                if (markerExists) {
+                if (!markerExists) {
                     this.autofocusCount += 1;
                 }
                 if (this.autofocusCount % AUTOFOCUS_INTERVAL == 0) {
