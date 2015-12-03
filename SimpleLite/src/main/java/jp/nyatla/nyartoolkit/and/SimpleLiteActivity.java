@@ -53,7 +53,7 @@ public class SimpleLiteActivity extends AndSketch implements AndGLView.IGLFuncti
 
 	NyARAndSensor _ss;
 	NyARAndMarkerSystem _ms;
-	private int _mid;
+	private int _mid, _mid2;
 	AndGLTextLabel text;
 	AndGLBox box;
 	AndGLFpsLabel fps;
@@ -68,6 +68,7 @@ public class SimpleLiteActivity extends AndSketch implements AndGLView.IGLFuncti
 			//create marker system
 			this._ms=new NyARAndMarkerSystem(new NyARMarkerSystemConfig(this._cap_size.width,this._cap_size.height));
 			this._mid=this._ms.addARMarker(assetMng.open("AR/data/hiro.pat"),16,25,80);
+			this._mid2=this._ms.addARMarker(assetMng.open("AR/data/kanji.pat"),16,25,80);
 			this._ss.start();
 			//setup openGL Camera Frustum
 			gl.glMatrixMode(GL10.GL_PROJECTION);
@@ -108,6 +109,12 @@ public class SimpleLiteActivity extends AndSketch implements AndGLView.IGLFuncti
 					gl.glMatrixMode(GL10.GL_MODELVIEW);
 					gl.glLoadMatrixf(this._ms.getGlMarkerMatrix(this._mid),0);
 					this.box.draw(0,0,20);
+				}
+				if(this._ms.isExistMarker(this._mid2)){
+					this.text.draw("found"+this._ms.getConfidence(this._mid2),0,16);
+					gl.glMatrixMode(GL10.GL_MODELVIEW);
+					gl.glLoadMatrixf(this._ms.getGlMarkerMatrix(this._mid2),0);
+					this.box.draw(0,0,0);
 				}
 		}
 		}catch(Exception e)
