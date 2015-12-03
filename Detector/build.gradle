@@ -4,11 +4,11 @@ android {
     compileSdkVersion 23
     buildToolsVersion '23.0.2'
     defaultConfig {
-        applicationId "com.gmail.takashi316.detector"
+        applicationId "com.gmail.takashi316.marker_detector"
         minSdkVersion 8
         targetSdkVersion 17
-        versionCode 11
-        versionName '0.1.1.20151202'
+        versionCode 12
+        versionName '0.1.2.20151203'
     }
     buildTypes {
         release {
