@@ -2,6 +2,6 @@
 <resources>
 
     <string name="hello">Hello World, MarkerPlaneActivity!</string>
-    <string name="app_name">Sample - MarkerPlane</string>
+    <string name="app_name">MarkerPlane</string>
 
 </resources>
