@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PreviewActivity"></activity>
+        <activity android:name=".PreviewCallbackActivity"></activity>
     </application>
 
 </manifest>

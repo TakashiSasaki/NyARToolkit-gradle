@@ -79,5 +79,23 @@
         android:layout_toRightOf="@+id/buttonLandscape"
         android:layout_toEndOf="@+id/buttonLandscape" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start PreviewActivity"
+        android:id="@+id/buttonPreviewActivity"
+        android:layout_below="@+id/buttonPortrait"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start PreviewCallbackActivity"
+        android:id="@+id/buttonPreviewCallbackActivity"
+        android:layout_below="@+id/buttonPreviewActivity"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>

@@ -74,6 +74,20 @@ public class DetectorActivity extends AppCompatActivity {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
             }
         });
+
+        findViewById(R.id.buttonPreviewActivity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), PreviewActivity.class));
+            }
+        });
+
+        findViewById(R.id.buttonPreviewCallbackActivity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), PreviewCallbackActivity.class));
+            }
+        });
     }
 
     @Override
