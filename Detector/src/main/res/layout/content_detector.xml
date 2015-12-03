@@ -97,5 +97,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start MarkerSystemCallbackActivity"
+        android:id="@+id/buttonMarkerSystemCallbackActivity"
+        android:layout_below="@+id/buttonPreviewCallbackActivity"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>

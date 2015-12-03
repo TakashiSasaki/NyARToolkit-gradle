@@ -88,6 +88,13 @@ public class DetectorActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), PreviewCallbackActivity.class));
             }
         });
+
+        findViewById(R.id.buttonMarkerSystemCallbackActivity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), MarkerSystemCallbackActivity.class));
+            }
+        });
     }
 
     @Override

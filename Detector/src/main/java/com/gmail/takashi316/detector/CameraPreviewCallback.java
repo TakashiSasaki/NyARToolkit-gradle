@@ -16,7 +16,7 @@ public class CameraPreviewCallback extends NyARSensor implements Camera.PreviewC
 
     byte[][] buffer;
     int bufferIndex;
-    private NyARAndYUV420RgbRaster _rgb_raster;
+    protected NyARAndYUV420RgbRaster _rgb_raster;
     //TODO: マーカーが見つからない時だけオートフォーカスを実行するように変更する。
     final static int AUTOFOCUS_INTERVAL = 100;
     int autofocusCount;
