@@ -17,6 +17,9 @@ public class CameraPreviewCallback extends NyARSensor implements Camera.PreviewC
     byte[][] buffer;
     int bufferIndex;
     private NyARAndYUV420RgbRaster _rgb_raster;
+    //TODO: マーカーが見つからない時だけオートフォーカスを実行するように変更する。
+    final static int AUTOFOCUS_INTERVAL = 100;
+    int autofocusCount;
 
     public CameraPreviewCallback(int preview_width, int preview_height) throws NyARException {
         super(new NyARIntSize(preview_width, preview_height));
@@ -51,6 +54,10 @@ public class CameraPreviewCallback extends NyARSensor implements Camera.PreviewC
             Thread.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+        autofocusCount += 1;
+        if (autofocusCount % AUTOFOCUS_INTERVAL == 0) {
+            camera.autoFocus(null);
         }
     }//onPreviewFrame
 }//CameraPreviewCallback
