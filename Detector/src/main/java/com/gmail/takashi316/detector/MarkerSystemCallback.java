@@ -20,12 +20,13 @@ public class MarkerSystemCallback extends CameraPreviewCallback {
     float[] glMarkerMatrix1;
     float[] glMarkerMatrix2;
     boolean markerExists;
+    final static int MARKER_SIZE = 80;
 
     public MarkerSystemCallback(int preview_width, int preview_height, AssetManager assetManager) throws NyARException, IOException {
         super(preview_width, preview_height);
         nyARAndMarkerSystem = new NyARAndMarkerSystem(new NyARMarkerSystemConfig(preview_width, preview_height));
-        markerId1 = nyARAndMarkerSystem.addARMarker(assetManager.open("AR/data/hiro.pat"), 16, 25, 80);
-        markerId2 = nyARAndMarkerSystem.addARMarker(assetManager.open("AR/data/kanji.pat"), 16, 25, 80);
+        markerId1 = nyARAndMarkerSystem.addARMarker(assetManager.open("AR/data/hiro.pat"), 16, 25, MARKER_SIZE);
+        markerId2 = nyARAndMarkerSystem.addARMarker(assetManager.open("AR/data/kanji.pat"), 16, 25, MARKER_SIZE);
         glProjectionMatrix = nyARAndMarkerSystem.getGlProjectionMatrix();
     }
 
