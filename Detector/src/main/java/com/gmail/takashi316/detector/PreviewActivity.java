@@ -3,9 +3,8 @@ package com.gmail.takashi316.detector;
 import android.app.Activity;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.view.ViewGroup;
+import android.view.SurfaceView;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 
 /**
  * Created by sasaki on 2015/12/02.
@@ -13,6 +12,8 @@ import android.widget.FrameLayout;
 public class PreviewActivity extends Activity {
 
     Camera camera;
+    SurfaceHolderCallback surfaceHolderCallback;
+    SurfaceView surfaceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +21,15 @@ public class PreviewActivity extends Activity {
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_preview);
+        this.surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         camera = Camera.open();
-        CameraSurfaceView camera_surface_view = new CameraSurfaceView(this, camera);
-        FrameLayout frame_layout = (FrameLayout) findViewById(R.id.frameLayout);
-        frame_layout.addView(camera_surface_view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        this.surfaceHolderCallback = new SurfaceHolderCallback(camera);
+        this.surfaceView.getHolder().addCallback(this.surfaceHolderCallback);
     }
 
     @Override
