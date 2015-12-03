@@ -28,13 +28,15 @@ public class PreviewActivity extends Activity {
     protected void onStart() {
         super.onStart();
         camera = Camera.open();
-        this.surfaceHolderCallback = new SurfaceHolderCallback(camera);
+        this.surfaceHolderCallback = new SurfaceHolderCallback();
+        this.surfaceHolderCallback.setCamera(camera);
         this.surfaceView.getHolder().addCallback(this.surfaceHolderCallback);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        this.surfaceHolderCallback.setCamera(null);
         camera.stopPreview();
         camera.release();
         camera = null;

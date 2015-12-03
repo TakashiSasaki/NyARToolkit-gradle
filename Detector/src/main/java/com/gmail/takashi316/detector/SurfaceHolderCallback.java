@@ -12,17 +12,22 @@ public class SurfaceHolderCallback implements SurfaceHolder.Callback {
 
     private Camera camera;
 
-    public SurfaceHolderCallback(Camera camera) {
+    public SurfaceHolderCallback() {
+    }
+
+    public void setCamera(Camera camera) {
         this.camera = camera;
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        try {
-            this.camera.setPreviewDisplay(holder);
-            this.camera.startPreview();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (this.camera != null) {
+            try {
+                this.camera.setPreviewDisplay(holder);
+                this.camera.startPreview();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     }
