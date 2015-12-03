@@ -34,15 +34,16 @@
  */
 package jp.androidgroup.nyartoolkit.utils.camera;
 
-import java.io.IOException;
-import java.util.List;
-
-import jp.androidgroup.nyartoolkit.sketch.AndSketch;
 import android.graphics.ImageFormat;
 import android.hardware.Camera;
 import android.hardware.Camera.Size;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import java.io.IOException;
+import java.util.List;
+
+import jp.androidgroup.nyartoolkit.sketch.AndSketch;
 
 
 /**
