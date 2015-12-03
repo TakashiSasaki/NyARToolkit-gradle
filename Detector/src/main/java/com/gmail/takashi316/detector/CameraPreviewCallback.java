@@ -3,15 +3,20 @@ package com.gmail.takashi316.detector;
 import android.graphics.ImageFormat;
 import android.hardware.Camera;
 
+import jp.nyatla.nyartoolkit.core.NyARException;
+import jp.nyatla.nyartoolkit.core.types.NyARIntSize;
+import jp.nyatla.nyartoolkit.markersystem.NyARSensor;
+
 /**
  * Created by sasaki on 2015/12/03.
  */
-public class CameraPreviewCallback implements Camera.PreviewCallback {
+public class CameraPreviewCallback extends NyARSensor implements Camera.PreviewCallback {
 
     byte[][] buffer;
     int bufferIndex;
 
-    public CameraPreviewCallback(int preview_width, int preview_height) {
+    public CameraPreviewCallback(int preview_width, int preview_height) throws NyARException {
+        super(new NyARIntSize(preview_width, preview_height));
         this.buffer = new byte[2][preview_width * preview_height * ImageFormat.getBitsPerPixel(ImageFormat.NV21) / 8];
         this.bufferIndex = 1;
     }

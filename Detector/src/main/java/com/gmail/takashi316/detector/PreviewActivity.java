@@ -8,6 +8,8 @@ import android.view.SurfaceView;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
+import jp.nyatla.nyartoolkit.core.NyARException;
+
 /**
  * Created by sasaki on 2015/12/02.
  */
@@ -35,9 +37,13 @@ public class PreviewActivity extends Activity {
         this.surfaceHolderCallback.setCamera(camera);
         this.surfaceView.getHolder().addCallback(this.surfaceHolderCallback);
         this.surfaceView.setLayoutParams(new FrameLayout.LayoutParams(surfaceHolderCallback.getPreviewWidth(), surfaceHolderCallback.getPreviewHeight()));
-        this.cameraPreviewCallback = new CameraPreviewCallback(surfaceHolderCallback.getPreviewWidth(), surfaceHolderCallback.getPreviewHeight());
-        camera.addCallbackBuffer(this.cameraPreviewCallback.getCurrentBuffer());
-        camera.setPreviewCallbackWithBuffer(this.cameraPreviewCallback);
+        try {
+            this.cameraPreviewCallback = new CameraPreviewCallback(surfaceHolderCallback.getPreviewWidth(), surfaceHolderCallback.getPreviewHeight());
+            camera.addCallbackBuffer(this.cameraPreviewCallback.getCurrentBuffer());
+            camera.setPreviewCallbackWithBuffer(this.cameraPreviewCallback);
+        } catch (NyARException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
