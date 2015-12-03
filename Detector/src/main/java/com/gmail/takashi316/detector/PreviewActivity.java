@@ -16,6 +16,7 @@ public class PreviewActivity extends Activity {
     Camera camera;
     SurfaceHolderCallback surfaceHolderCallback;
     SurfaceView surfaceView;
+    CameraPreviewCallback cameraPreviewCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,9 @@ public class PreviewActivity extends Activity {
         this.surfaceHolderCallback.setCamera(camera);
         this.surfaceView.getHolder().addCallback(this.surfaceHolderCallback);
         this.surfaceView.setLayoutParams(new FrameLayout.LayoutParams(surfaceHolderCallback.getPreviewWidth(), surfaceHolderCallback.getPreviewHeight()));
+        this.cameraPreviewCallback = new CameraPreviewCallback(surfaceHolderCallback.getPreviewWidth(), surfaceHolderCallback.getPreviewHeight());
+        camera.addCallbackBuffer(this.cameraPreviewCallback.getCurrentBuffer());
+        camera.setPreviewCallbackWithBuffer(this.cameraPreviewCallback);
     }
 
     @Override
