@@ -45,7 +45,7 @@ public class CameraPreviewCallback extends NyARSensor implements Camera.PreviewC
             try {
                 this._rgb_raster.wrapBuffer(data);
                 this._gs_raster.wrapBuffer(data);
-                this.update(_rgb_raster);
+                this.update(this._rgb_raster);
             } catch (NyARException e) {
                 e.printStackTrace();
             }
@@ -55,8 +55,8 @@ public class CameraPreviewCallback extends NyARSensor implements Camera.PreviewC
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        autofocusCount += 1;
-        if (autofocusCount % AUTOFOCUS_INTERVAL == 0) {
+        this.autofocusCount += 1;
+        if (this.autofocusCount % AUTOFOCUS_INTERVAL == 0) {
             camera.autoFocus(null);
         }
     }//onPreviewFrame
