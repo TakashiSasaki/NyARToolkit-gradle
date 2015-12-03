@@ -17,4 +17,8 @@ public class MyARSensor extends NyARSensor {
     public MyARSensor(int width, int height) throws NyARException {
         super(new NyARIntSize(width, height));
     }
+
+    public MyARSensor(SurfaceHolderCallback surfaceHolderCallback) throws NyARException {
+        super(new NyARIntSize(surfaceHolderCallback.getPreviewWidth(), surfaceHolderCallback.getPreviewHeight()));
+    }
 }
