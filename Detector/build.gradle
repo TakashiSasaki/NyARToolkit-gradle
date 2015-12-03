@@ -7,8 +7,8 @@ android {
         applicationId "com.gmail.takashi316.marker_detector"
         minSdkVersion 8
         targetSdkVersion 17
-        versionCode 13
-        versionName '0.1.3.20151203'
+        versionCode 14
+        versionName '0.1.4.20151204'
     }
     buildTypes {
         release {
